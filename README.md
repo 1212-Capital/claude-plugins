@@ -1,125 +1,48 @@
-# 1212 Capital — brand plugin
+# 1212 Capital — Claude plugins
 
-Everything needed to produce an on-brand 1212 Capital artefact without opening
-the Pencil file: the design tokens, the voice, the three A4 document templates
-and the four social canvases.
+The marketplace 1212 Capital uses to distribute its Claude plugins internally.
+Add it once, install what you need, and updates arrive when we push here.
 
-## Who this is for
+## Install
 
-Anyone at 1212 who needs to produce a branded document. You do not need Pencil,
-you do not need the design file, and you do not need any of the connectors the
-brand was built with. You need Python with Playwright and a Chromium build:
-
-```bash
-pip install playwright && playwright install chromium
+```
+/plugin marketplace add 1212-Capital/claude-plugins
+/plugin install 1212-brand@1212-capital
 ```
 
-The fonts and all 18 brand images ship inside the plugin, so rendering works
-offline. The Pencil route is there for whoever maintains `1212.pen`; everyone
-else can ignore it.
+In the desktop app, the same thing without the terminal: the **+** button next
+to the prompt box, then **Plugins** and **Add plugin**.
 
-Every document skill **asks before it builds**: which fund, which month, which
-client, which cover image. One round of questions, defaults pre-selected.
+This repository is private, so the first command needs your GitHub access to
+the 1212-Capital org. If you are already signed in with `gh auth login` or an
+SSH key, it just works. If Claude cannot reach the repository, ask Noah rather
+than fighting with credentials.
 
-## Skills
+## Plugins
 
-| Skill | Ask for it with |
+| Plugin | What it does |
 |---|---|
-| **1212-brand-kit** | "what are our colours", "which font", "make this on-brand", "a social post for 1212", "brand guidelines" |
-| **1212-fact-sheet** | "the monthly fact sheet", "update the fact sheet with June's numbers" |
-| **1212-newsletter** | "the monthly newsletter", "this month's market roundup" |
-| **1212-internal-document** | "a due diligence memo", "an investment review", "an internal framework" |
-| **1212-client-statement** | "the client statements", "statement of account for [client]" |
+| **1212-brand** | The brand system and the four A4 document templates: fact sheet, newsletter, internal document, client statement. Plus the four social canvases. See [its README](plugins/1212-brand/README.md). |
 
-The brand kit is the shared foundation; the other four load it for palette,
-type and voice.
-
-## What's in `assets/`
+## Layout
 
 ```
-assets/
-├── css/1212.css              the design system, verified against Pencil
-├── fonts/                    Lora · Inter · IBM Plex Mono, offline
-├── img/{matin,midi,soir}/    the 18 brand landscapes
-├── templates/                factsheet · newsletter · internal-doc · client-statement · social
-├── schemas/                  fact sheet and statement contracts, defaults, examples
-└── scripts/
-    ├── new_doc.py             template -> a working copy, paths made absolute
-    ├── build_factsheet.py    JSON -> fact sheet HTML (+ PDF)
-    ├── build_statement.py    JSON -> client statement, single or batch
-    ├── measure_pages.py      how full each Content stack is, before exporting
-    ├── render_pdf.py         HTML -> A4 PDF (and per-page PNGs)
-    └── render_png.py         social HTML -> PNG per canvas
+.claude-plugin/marketplace.json    the catalogue
+plugins/<name>/                    one folder per plugin, each with its own
+                                   .claude-plugin/plugin.json
 ```
 
-## Two production routes
+To add a plugin, drop its folder under `plugins/` and add an entry to
+`marketplace.json`. `metadata.pluginRoot` is already `./plugins`, so the entry's
+`source` is just the folder name.
 
-**Pencil** — highest fidelity, stays editable, needs the app open on
-`1212.pen`. Component IDs and the build recipe are in the brand kit's
-`references/pencil.md`.
+## Publishing an update
 
-**Self-contained HTML → PDF** — works anywhere. Requires Python with
-Playwright and a Chromium build; no network, since the fonts and images ship
-with the plugin.
+Bump `version` in the plugin's `plugin.json`, commit, push. Team members pick it
+up on their next `/plugin marketplace update`, or automatically if they have
+auto-update enabled for this marketplace.
 
-```bash
-# start any document from its template, asset paths rewritten to absolute
-python3 assets/scripts/new_doc.py newsletter out/newsletter-2026-07.html
-
-# monthly fact sheet from data
-python3 assets/scripts/build_factsheet.py june.json out.html --pdf out.pdf
-
-# one client statement per account
-python3 assets/scripts/build_statement.py july-accounts.json out/2026-07/ --batch --pdf
-
-# page fill check before exporting
-python3 assets/scripts/measure_pages.py doc.html
-
-# any 1212 document
-python3 assets/scripts/render_pdf.py doc.html doc.pdf --png review
-
-# social canvases
-python3 assets/scripts/render_png.py assets/templates/social.html out/
-
-# colour sanity on any PDF before it leaves
-python3 assets/scripts/check_pdf.py doc.pdf
-```
-
-## Fidelity
-
-The stylesheet was checked against the Pencil renderer page by page, by
-exporting every page of the four documents from `1212.pen` to HTML and running
-a pixel diff. The fact sheet, newsletter, internal document and client
-statement all render at 0.00% pixel difference, except the fact sheet's donut,
-which differs by 0.08% of the page from mask antialiasing.
-
-One thing a pixel diff cannot catch: Chromium embeds JPEGs byte for byte into
-the PDF but tags them `/ColorTransform 0`, which declares the three components
-already RGB when they are YCbCr. Strict PDF readers honour the flag and render
-every brand photograph magenta, while lenient ones look correct.
-`render_pdf.py` repairs the flag; `check_pdf.py` verifies it. Rendering to PNG
-and diffing will never surface this, because both sides of the diff are PNG.
-
-Two consequences worth knowing before editing `1212.css`:
-
-- Pencil renders `Math.round(fontSize × lineHeight)` pixels, so the CSS uses
-  integer px line-heights, not ratios. Round half **up**.
-- Exposure bars in the fact sheet are all lavender. Only the dot carries the
-  ramp colour.
-- The newsletter Content gap is 26, not 30, since the source lines moved into
-  the article and brief blocks.
-
-## Extensions, not in the .pen
-
-Data plates (`.plate`, `.hbar`, `.stackbar`, `.timeline`) and entity chips
-(`.chip`) were added so an inner page can carry information where a decorative
-photograph used to sit. They follow the palette and the type roles but they do
-not exist as Pencil components yet. Mirror them into `1212.pen` before treating
-them as part of the system.
-
-## Source
-
-`1212.pen` — frames *Brand System*, *Brand Kit*, *Assets*, *Fact Sheet ·
-Monthly*, *Newsletter · Monthly*, *Internal Document · Template*, including the
-three long guide notes attached to the document templates. When the .pen and
-this plugin disagree, the .pen wins; update the plugin and re-run the diff.
+The plugin ships **derivatives**, not masters: the 18 brand images here are
+optimised 1600x900 JPEGs and the fonts are subset woff2. The masters live in
+`1212-Capital/brand-kit`. When a master changes there, re-export, drop it in,
+and bump the version.
