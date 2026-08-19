@@ -1,13 +1,13 @@
 {
-  "period": "1 – 31 July 2026",
+  "period": "1 \u2013 31 July 2026",
   "as_of": "31 Jul 2026",
   "reference": "CS-2026-07",
   "client": {
-    "name": "Meridian Family Trust",
-    "account": "4821-0093",
+    "name": "Example Family Trust",
+    "account": "0000-0000",
     "type": "Trust",
-    "opened": "04/02/2026",
-    "manager": "Noah Boisserie, Head of DeFi"
+    "opened": "01/01/2026",
+    "manager": "Relationship manager, 1212 Capital"
   },
   "headline": [
     {
@@ -59,8 +59,8 @@
     },
     {
       "strategy": "Cash and equivalents",
-      "units": "—",
-      "nav": "—",
+      "units": "\u2014",
+      "nav": "\u2014",
       "value": "49,749",
       "weight": "3.9%"
     }
@@ -75,25 +75,25 @@
     {
       "date": "31/07/2026",
       "type": "Fee",
-      "strategy": "—",
-      "amount": "−1,043"
+      "strategy": "\u2014",
+      "amount": "\u22121,043"
     }
   ],
   "fees": [
     {
       "item": "Management fee",
       "basis": "0% per annum on NAV",
-      "amount": "—"
+      "amount": "\u2014"
     },
     {
       "item": "Performance fee",
       "basis": "20% above high-water mark",
-      "amount": "−1,043"
+      "amount": "\u22121,043"
     },
     {
       "item": "Total",
       "basis": "",
-      "amount": "−1,043"
+      "amount": "\u22121,043"
     }
   ],
   "commentary": {

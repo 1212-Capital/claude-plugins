@@ -243,8 +243,12 @@ def main():
             out = str(pathlib.Path(dest) / f"{slug}.html")
             one(merged, defaults, out, out.replace(".html", ".pdf") if want_pdf else None)
     else:
-        i = sys.argv.index("--pdf") + 1 if want_pdf else None
-        pdf = sys.argv[i] if want_pdf and i < len(sys.argv) and not sys.argv[i].startswith("--") else None
+        pdf = None
+        if want_pdf:
+            i = sys.argv.index("--pdf") + 1
+            explicit = sys.argv[i] if i < len(sys.argv) and not sys.argv[i].startswith("--") else None
+            # bare --pdf derives the path from dest, the way --batch already does
+            pdf = explicit or str(pathlib.Path(dest).with_suffix(".pdf"))
         one(data, defaults, dest, pdf)
 
 

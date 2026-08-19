@@ -13,7 +13,7 @@ your file falls back to the defaults.
 | `as_of` | string | `"31 Jul 2026"`. Upper-cased into the running head. |
 | `reference` | string | `"CS-2026-07"`. The account number is appended automatically. |
 | `client.name` | string | Appears as the cover headline and in the running head. |
-| `client.account` | string | `"4821-0093"` |
+| `client.account` | string | `"0000-0000"` |
 | `client.type` | string | Individual, Trust, Company … |
 | `client.opened` | string | `DD/MM/YYYY` |
 | `client.manager` | string | Name, role |
