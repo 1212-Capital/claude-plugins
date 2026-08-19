@@ -1,0 +1,27 @@
+Copyright © 2026 1212 Capital Inc. All rights reserved.
+
+This repository is public so that 1212 Capital's team and collaborators can
+install the plugin without managing repository access. Public visibility is
+not a licence to reuse what it contains.
+
+PROPRIETARY
+
+The following are the property of 1212 Capital Inc.:
+
+  - The 18 painted landscapes in plugins/1212-brand/assets/img/. Original
+    artwork, copyright 1212 Capital Inc.
+  - The design system, document templates, brand guidelines, voice and
+    product wording throughout plugins/1212-brand/.
+
+You may read this repository and install the plugin. You may not redistribute
+these assets, resell them, or reuse them in another brand, product or design
+system without written permission from 1212 Capital Inc.
+
+"1212", "1212 Capital", the 1212 logotype, and the product names 1212.Stable
+and 1212.Alpha are marks of 1212 Capital Inc.
+
+EXCEPTION - BUNDLED FONTS
+
+The typefaces in plugins/1212-brand/assets/fonts/ are third-party software
+under the SIL Open Font License 1.1 and are not covered by the notice above.
+See plugins/1212-brand/assets/fonts/LICENSE.md.

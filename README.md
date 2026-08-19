@@ -46,3 +46,14 @@ The plugin ships **derivatives**, not masters: the 18 brand images here are
 optimised 1600x900 JPEGs and the fonts are subset woff2. The masters live in
 `1212-Capital/brand-kit`. When a master changes there, re-export, drop it in,
 and bump the version.
+
+## Licence
+
+Copyright © 2026 1212 Capital Inc. All rights reserved. This repository is
+public so the team can install the plugin without managing repository access,
+not to license its contents for reuse. The brand images and the design system
+are proprietary; see [LICENSE](LICENSE).
+
+The bundled typefaces are the exception: third-party software under the SIL
+Open Font License 1.1, see
+[plugins/1212-brand/assets/fonts/LICENSE.md](plugins/1212-brand/assets/fonts/LICENSE.md).
