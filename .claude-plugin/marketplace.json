@@ -1,0 +1,19 @@
+{
+  "name": "1212-capital",
+  "owner": {
+    "name": "1212 Capital"
+  },
+  "description": "1212 Capital's internal plugins.",
+  "plugins": [
+    {
+      "name": "1212-brand",
+      "source": "./",
+      "description": "1212 Capital's brand system and its four A4 document templates: fact sheet, newsletter, internal document, client statement. Renders pixel-identically to the Pencil source, with or without Pencil.",
+      "author": {
+        "name": "1212 Capital"
+      },
+      "category": "brand",
+      "tags": ["brand", "documents", "fact sheet", "newsletter", "client statement"]
+    }
+  ]
+}
