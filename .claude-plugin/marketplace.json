@@ -4,13 +4,10 @@
     "name": "1212 Capital"
   },
   "description": "1212 Capital's internal Claude plugins.",
-  "metadata": {
-    "pluginRoot": "./plugins"
-  },
   "plugins": [
     {
       "name": "1212-brand",
-      "source": "./1212-brand",
+      "source": "./plugins/1212-brand",
       "description": "1212 Capital's brand system and its four A4 document templates: fact sheet, newsletter, internal document, client statement. Renders pixel-identically to the Pencil source, with or without Pencil.",
       "author": {
         "name": "1212 Capital"
