@@ -1,0 +1,244 @@
+{
+  "note": "One entry per 1212 vault. `copy` drives the fact sheet wording; a directional fund must not inherit a capital-preservation description. Add a fund by pasting its Lagoon address and filling `copy`.",
+  "source": "https://app.lagoon.finance/vault/{chain}/{address} — readable with WebFetch. GraphQL API at https://api.lagoon.finance/query (open, no auth) when the environment can reach it.",
+  "funds": {
+    "stable": {
+      "name": "1212.Stable",
+      "address": "0xbb30c3b6046debcbe941281218d18dec8ecebeb5",
+      "chain": 1,
+      "asset": "USDC",
+      "kind": "non-directional",
+      "copy": {
+        "kicker": "Stable Digital Asset Fund",
+        "standfirst": "Capital preservation first. Passive income generated from stablecoin-denominated assets with transparent, verifiable collateral, and no direct exposure to crypto market volatility.",
+        "description": "The strategy prioritizes capital preservation. It is designed to generate passive income through stablecoin-denominated assets, eliminating direct exposure to crypto market volatility. Deployments focus on stablecoins with transparent and verifiable collateral, using liquidity provision, arbitrage mechanisms, and on-chain fixed-income strategies to produce stable and risk-controlled yield.",
+        "asset_class": "Stablecoins",
+        "comparison_label": "CURRENT YIELD ENVIRONMENT",
+        "comparison_heading": [
+          "Asset",
+          "30-Day Yield (Annualized)"
+        ],
+        "allocation_heading": "Strategy Allocation",
+        "glossary": [
+          {
+            "term": "Stablecoin",
+            "def": "A digital asset designed to maintain a reference value, typically pegged to a fiat currency such as the U.S. dollar. Stability is not guaranteed. Risks include depegging, issuer risk, collateral risk, liquidity risk, and regulatory risk."
+          },
+          {
+            "term": "Collateralization / Verifiable Collateral",
+            "def": "The mechanism by which a stablecoin is backed by reserve assets. “Verifiable collateral” refers to disclosed or attested reserves but does not constitute a guarantee against loss."
+          },
+          {
+            "term": "Non-Directional Strategy",
+            "def": "An investment approach whose performance is not intended to depend on upward or downward movements of volatile crypto-assets. Non-directional does not mean risk-free."
+          },
+          {
+            "term": "DeFi (Decentralized Finance)",
+            "def": "A financial ecosystem built on blockchain networks using smart contracts to facilitate lending, borrowing, trading, and yield generation without traditional intermediaries."
+          },
+          {
+            "term": "On-Chain",
+            "def": "Transactions and positions executed and recorded directly on a blockchain, accessible through public ledgers. On-chain transparency does not eliminate operational or market risks."
+          },
+          {
+            "term": "Liquidity Providing / AMM (Automated Market Maker)",
+            "def": "The provision of assets to decentralized liquidity pools to facilitate trading, in exchange for fees and/or incentives. Risks include pool imbalance, smart contract failure, and changing incentive structures."
+          },
+          {
+            "term": "Incentives",
+            "def": "Rewards distributed by protocols (often in native tokens) to encourage participation. Incentives may fluctuate, be discontinued, or lose value and are not guaranteed."
+          },
+          {
+            "term": "Lending / Borrowing",
+            "def": "On-chain markets enabling users to lend assets to earn yield or borrow assets against collateral. Risks include liquidation risk, protocol risk, oracle risk, and liquidity constraints."
+          },
+          {
+            "term": "Fixed Yield / Principal Tokens",
+            "def": "Structures designed to lock in a predetermined yield over a defined period. Risks include pricing risk, secondary market liquidity risk, protocol risk, and execution risk."
+          },
+          {
+            "term": "Multisignature Wallet",
+            "def": "A wallet requiring multiple approvals to execute transactions. While it reduces single-key risk, it introduces governance and coordination risks."
+          }
+        ],
+        "risks": [
+          {
+            "term": "Market & valuation",
+            "def": "Digital asset markets can move sharply and valuations may be uncertain, particularly for assets with limited secondary liquidity."
+          },
+          {
+            "term": "Stablecoin depeg",
+            "def": "Stablecoins are not risk-free and may deviate from their intended reference value, temporarily or permanently."
+          },
+          {
+            "term": "Liquidity",
+            "def": "Positions may not be realizable at short notice, or at carrying value, during periods of market stress."
+          },
+          {
+            "term": "Counterparty & custody",
+            "def": "The strategy depends on protocols, venues and custody arrangements whose failure could impair or delay recovery of positions."
+          },
+          {
+            "term": "Smart contract & protocol",
+            "def": "Code may contain vulnerabilities. Exploits, governance failures, oracle failures and network congestion can each cause loss."
+          },
+          {
+            "term": "Regulatory",
+            "def": "The treatment of digital assets and decentralized finance is evolving and may change adversely, including with retroactive effect."
+          },
+          {
+            "term": "Operational",
+            "def": "Execution, reconciliation and key management processes carry the risk of human or system error."
+          }
+        ],
+        "key_facts": [
+          [
+            "Asset Class",
+            "Stablecoins"
+          ],
+          [
+            "Inception Date",
+            "DD/MM/YYYY"
+          ],
+          [
+            "Subscription",
+            "Open-ended"
+          ],
+          [
+            "Currency",
+            "USDC"
+          ],
+          [
+            "Infrastructure",
+            "On-chain"
+          ]
+        ],
+        "risk_metrics": [
+          "VOLATILITY (SI)",
+          "MAX DRAWDOWN",
+          "SHARPE RATIO",
+          "BTC CORRELATION"
+        ]
+      }
+    },
+    "alpha": {
+      "name": "1212.Alpha",
+      "address": "0xc35ce0c1acfc448d18ddacbf641b09f2a18e1958",
+      "chain": 1,
+      "asset": "USDC",
+      "kind": "directional",
+      "copy": {
+        "kicker": "Systematic Directional Fund",
+        "standfirst": "A systematic directional strategy across a diversified universe of volatile digital assets, with exposure adjusted by quantitative signals. Capital is at risk and drawdowns are expected.",
+        "description": "The strategy allocates across a diversified universe of volatile crypto-assets, with exposure adjusted dynamically on proprietary quantitative signals. Positions are set by rules rather than discretion, and the level of market exposure varies through the cycle. Returns depend on the direction of the underlying assets, so the strategy is expected to gain in rising markets and to lose in falling ones.",
+        "asset_class": "Digital assets, volatile",
+        "comparison_label": "PERFORMANCE VS BENCHMARKS",
+        "comparison_heading": [
+          "Benchmark",
+          "Same period"
+        ],
+        "allocation_heading": "Current Exposure",
+        "glossary": [
+          {
+            "term": "Directional Strategy",
+            "def": "An approach whose performance depends on the direction of underlying asset prices. Gains and losses both scale with market moves, and a directional strategy can lose capital in a falling market."
+          },
+          {
+            "term": "Systematic Strategy",
+            "def": "Positions are set by predefined rules applied to data rather than by discretionary judgement. Rules can fail when market behaviour departs from the conditions in which they were designed."
+          },
+          {
+            "term": "Quantitative Signal",
+            "def": "A rule-derived indicator used to decide exposure. A signal is a hypothesis about future returns, not a forecast, and its historical relationship to returns may not persist."
+          },
+          {
+            "term": "Exposure",
+            "def": "The share of net asset value carrying market risk at a point in time. This strategy adjusts exposure dynamically, so it may be materially long, materially reduced, or flat."
+          },
+          {
+            "term": "Rebalancing",
+            "def": "Resetting positions toward the target the signals indicate. Rebalancing crystallises gains and losses and incurs transaction and slippage costs."
+          },
+          {
+            "term": "Drawdown",
+            "def": "The decline from a previous peak in net asset value. For a directional strategy, drawdowns are an expected feature and not an anomaly."
+          },
+          {
+            "term": "Volatility",
+            "def": "The dispersion of returns over a period. Higher volatility means a wider range of plausible outcomes over any horizon, in both directions."
+          },
+          {
+            "term": "Model Risk",
+            "def": "The risk that the rules, their parameters, or the data feeding them are wrong, stale, or overfitted to past conditions."
+          },
+          {
+            "term": "Slippage",
+            "def": "The difference between the price a trade is expected to achieve and the price obtained. It widens in thin or fast markets."
+          },
+          {
+            "term": "On-Chain",
+            "def": "Transactions and positions executed and recorded directly on a blockchain, accessible through public ledgers. On-chain transparency does not eliminate operational or market risks."
+          }
+        ],
+        "risks": [
+          {
+            "term": "Directional market risk",
+            "def": "The strategy takes deliberate exposure to volatile digital assets. A sustained fall in those assets will produce a loss, and capital is at risk."
+          },
+          {
+            "term": "Drawdown",
+            "def": "Peak-to-trough declines should be expected and may be deep and prolonged. Past drawdown figures do not bound future ones."
+          },
+          {
+            "term": "Model & signal failure",
+            "def": "Rules calibrated on past data may degrade or fail when market structure changes. There is no guarantee a signal that worked continues to work."
+          },
+          {
+            "term": "Concentration",
+            "def": "A diversified universe does not mean uncorrelated. Digital assets frequently move together, and diversification can fall away precisely when it is needed."
+          },
+          {
+            "term": "Liquidity & execution",
+            "def": "Positions may not be exitable at short notice or at carrying value. Slippage and transaction costs reduce realised returns."
+          },
+          {
+            "term": "Counterparty, custody & protocol",
+            "def": "The strategy depends on venues, protocols and custody arrangements whose failure could impair or delay recovery of positions, including smart contract exploits and oracle failures."
+          },
+          {
+            "term": "Regulatory & operational",
+            "def": "The treatment of digital assets is evolving and may change adversely. Execution, reconciliation and key management carry the risk of human or system error."
+          }
+        ],
+        "key_facts": [
+          [
+            "Asset Class",
+            "Digital assets, volatile"
+          ],
+          [
+            "Inception Date",
+            "DD/MM/YYYY"
+          ],
+          [
+            "Subscription",
+            "Open-ended"
+          ],
+          [
+            "Currency",
+            "USDC"
+          ],
+          [
+            "Infrastructure",
+            "On-chain"
+          ]
+        ],
+        "risk_metrics": [
+          "VOLATILITY (SI)",
+          "MAX DRAWDOWN",
+          "SHARPE RATIO",
+          "BETA TO BTC"
+        ]
+      }
+    }
+  }
+}

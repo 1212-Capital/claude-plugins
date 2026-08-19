@@ -1,0 +1,14 @@
+# build output
+out/
+work/
+review/
+*.pdf.tmp
+
+# python
+__pycache__/
+*.pyc
+.venv/
+
+# os
+.DS_Store
+Thumbs.db

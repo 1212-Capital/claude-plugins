@@ -1,0 +1,106 @@
+{
+  "period": "1 – 31 July 2026",
+  "as_of": "31 Jul 2026",
+  "reference": "CS-2026-07",
+  "client": {
+    "name": "Meridian Family Trust",
+    "account": "4821-0093",
+    "type": "Trust",
+    "opened": "04/02/2026",
+    "manager": "Noah Boisserie, Head of DeFi"
+  },
+  "headline": [
+    {
+      "label": "PORTFOLIO VALUE",
+      "value": "1,284,610"
+    },
+    {
+      "label": "NET CONTRIBUTIONS",
+      "value": "1,200,000"
+    },
+    {
+      "label": "GAIN / LOSS",
+      "value": "+84,610"
+    },
+    {
+      "label": "RETURN (SI)",
+      "value": "+7.05%"
+    }
+  ],
+  "performance": [
+    [
+      "This period",
+      "+0.78%"
+    ],
+    [
+      "Year to date",
+      "+5.86%"
+    ],
+    [
+      "Since inception",
+      "+7.05%"
+    ],
+    [
+      "Since inception (ann.)",
+      "+12.19%"
+    ],
+    [
+      "Fund, same period",
+      "+0.78%"
+    ]
+  ],
+  "positions": [
+    {
+      "strategy": "1212.Stable",
+      "units": "11,842.19",
+      "nav": "104.2718",
+      "value": "1,234,861",
+      "weight": "96.1%"
+    },
+    {
+      "strategy": "Cash and equivalents",
+      "units": "—",
+      "nav": "—",
+      "value": "49,749",
+      "weight": "3.9%"
+    }
+  ],
+  "movements": [
+    {
+      "date": "03/07/2026",
+      "type": "Subscription",
+      "strategy": "1212.Stable",
+      "amount": "+200,000"
+    },
+    {
+      "date": "31/07/2026",
+      "type": "Fee",
+      "strategy": "—",
+      "amount": "−1,043"
+    }
+  ],
+  "fees": [
+    {
+      "item": "Management fee",
+      "basis": "0% per annum on NAV",
+      "amount": "—"
+    },
+    {
+      "item": "Performance fee",
+      "basis": "20% above high-water mark",
+      "amount": "−1,043"
+    },
+    {
+      "item": "Total",
+      "basis": "",
+      "amount": "−1,043"
+    }
+  ],
+  "commentary": {
+    "title": "A quiet month, and the account tracked the strategy.",
+    "body": [
+      "The account returned 0.78% net in July, in line with the strategy return of 0.78% because no subscription or redemption fell mid-period other than the 3 July contribution, which was invested at the same dealing NAV.",
+      "Cash was held at 3.9% against a 5% ceiling. The performance fee shown was charged on the gain above the high-water mark set in June."
+    ]
+  }
+}

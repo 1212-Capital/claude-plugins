@@ -1,0 +1,214 @@
+{
+  "note": "The 18 brand landscapes, catalogued so a document can pick a cover on purpose. Attributes are what is visible, not mood words.",
+  "axes": {
+    "time": [
+      "matin (dawn, cool lilac and pale gold)",
+      "midi (noon, bright blue and cream)",
+      "soir (dusk, orange, pink and lilac)"
+    ],
+    "scene": [
+      "sea",
+      "mountain",
+      "lake",
+      "valley",
+      "dune",
+      "architecture"
+    ],
+    "figures": "true when people are visible in the frame"
+  },
+  "images": [
+    {
+      "id": "matin/opt-01",
+      "time": "matin",
+      "scene": [
+        "architecture",
+        "lake",
+        "mountain"
+      ],
+      "figures": false,
+      "desc": "A colonnade opening onto a lake and distant peaks, cypress at the left",
+      "busy": "left"
+    },
+    {
+      "id": "matin/opt-02",
+      "time": "matin",
+      "scene": [
+        "sea"
+      ],
+      "figures": true,
+      "desc": "A bay at sunrise, flowering slope, a group picnicking on the right",
+      "busy": "right"
+    },
+    {
+      "id": "matin/opt-03",
+      "time": "matin",
+      "scene": [
+        "sea",
+        "mountain"
+      ],
+      "figures": true,
+      "desc": "A coastal path above the sea, two walkers in hats, flowering hillside",
+      "busy": "right"
+    },
+    {
+      "id": "matin/opt-04",
+      "time": "matin",
+      "scene": [
+        "mountain",
+        "lake"
+      ],
+      "figures": false,
+      "desc": "Snow peaks above a misted lake, pines on a spit",
+      "busy": "even"
+    },
+    {
+      "id": "matin/opt-05",
+      "time": "matin",
+      "scene": [
+        "sea"
+      ],
+      "figures": true,
+      "desc": "A single figure on a cliff facing an empty sea, very open sky",
+      "busy": "low"
+    },
+    {
+      "id": "matin/opt-06",
+      "time": "matin",
+      "scene": [
+        "valley"
+      ],
+      "figures": false,
+      "desc": "A winding river through olive terraces, wide valley",
+      "busy": "even"
+    },
+    {
+      "id": "midi/opt-01",
+      "time": "midi",
+      "scene": [
+        "sea"
+      ],
+      "figures": false,
+      "desc": "A rocky headland crowned with pines above deep blue water",
+      "busy": "right"
+    },
+    {
+      "id": "midi/opt-02",
+      "time": "midi",
+      "scene": [
+        "sea"
+      ],
+      "figures": false,
+      "desc": "A turquoise cove, pines on the far shore, calm water",
+      "busy": "right"
+    },
+    {
+      "id": "midi/opt-03",
+      "time": "midi",
+      "scene": [
+        "sea"
+      ],
+      "figures": true,
+      "desc": "Four figures seated on a terrace above the sea, a sail on the horizon",
+      "busy": "right"
+    },
+    {
+      "id": "midi/opt-04",
+      "time": "midi",
+      "scene": [
+        "valley",
+        "mountain"
+      ],
+      "figures": false,
+      "desc": "A canyon with a river far below, arid ridges to the horizon",
+      "busy": "even"
+    },
+    {
+      "id": "midi/opt-05",
+      "time": "midi",
+      "scene": [
+        "sea"
+      ],
+      "figures": false,
+      "desc": "Chalk cliffs and sea stacks, flowering slope, a sail offshore",
+      "busy": "left"
+    },
+    {
+      "id": "midi/opt-06",
+      "time": "midi",
+      "scene": [
+        "mountain"
+      ],
+      "figures": false,
+      "desc": "An alpine valley, snow peaks, a stream in the foreground",
+      "busy": "even"
+    },
+    {
+      "id": "soir/opt-01",
+      "time": "soir",
+      "scene": [
+        "sea"
+      ],
+      "figures": false,
+      "desc": "A bay at sunset, flowering foreground, islands on the horizon",
+      "busy": "low"
+    },
+    {
+      "id": "soir/opt-02",
+      "time": "soir",
+      "scene": [
+        "sea"
+      ],
+      "figures": false,
+      "desc": "Sun low over open water, rocks in the foreground, very few elements",
+      "busy": "low"
+    },
+    {
+      "id": "soir/opt-03",
+      "time": "soir",
+      "scene": [
+        "dune"
+      ],
+      "figures": false,
+      "desc": "Dunes and a sand path under a low sun, cool shadows",
+      "busy": "low"
+    },
+    {
+      "id": "soir/opt-04",
+      "time": "soir",
+      "scene": [
+        "sea"
+      ],
+      "figures": true,
+      "desc": "A group picnicking above a sunset bay, a tree on the right",
+      "busy": "right"
+    },
+    {
+      "id": "soir/opt-05",
+      "time": "soir",
+      "scene": [
+        "sea"
+      ],
+      "figures": false,
+      "desc": "Still water at sunset, scattered islets, rocks in the foreground",
+      "busy": "low"
+    },
+    {
+      "id": "soir/opt-06",
+      "time": "soir",
+      "scene": [
+        "sea"
+      ],
+      "figures": false,
+      "desc": "A sunset bay with islets and a headland, tree on the right",
+      "busy": "right"
+    }
+  ],
+  "rules": {
+    "fact-sheet": "no figures. An investor document is not a lifestyle brochure.",
+    "internal-document": "no figures, and prefer a low-busy frame so the meta strip stays legible.",
+    "newsletter": "figures allowed, they warm an editorial cover.",
+    "client-statement": "figures allowed, prefer matin or midi. This one is personal.",
+    "social": "figures allowed on announcement formats, avoid on stat formats where the figure is the subject.",
+    "always": "never reuse the previous issue's image, and recheck the scrim after any swap."
+  }
+}

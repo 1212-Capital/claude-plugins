@@ -1,0 +1,375 @@
+/* ============================================================================
+   1212 Capital — document stylesheet
+   Derived 1:1 from 1212.pen (Brand System + the three A4 templates).
+   Every number here exists in the Pencil file. Do not invent new ones.
+   ========================================================================= */
+
+/* --- Fonts -------------------------------------------------------------- */
+@font-face{font-family:'Lora';src:url('../fonts/lora-latin-wght-normal.woff2') format('woff2-variations');font-weight:400 700;font-style:normal;font-display:block}
+@font-face{font-family:'Lora';src:url('../fonts/lora-latin-wght-italic.woff2') format('woff2-variations');font-weight:400 700;font-style:italic;font-display:block}
+@font-face{font-family:'Inter';src:url('../fonts/inter-latin-wght-normal.woff2') format('woff2-variations');font-weight:100 900;font-style:normal;font-display:block}
+@font-face{font-family:'Inter';src:url('../fonts/inter-latin-wght-italic.woff2') format('woff2-variations');font-weight:100 900;font-style:italic;font-display:block}
+@font-face{font-family:'IBM Plex Mono';src:url('../fonts/ibm-plex-mono-latin-400-normal.woff2') format('woff2');font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:'IBM Plex Mono';src:url('../fonts/ibm-plex-mono-latin-500-normal.woff2') format('woff2');font-weight:500;font-style:normal;font-display:block}
+@font-face{font-family:'IBM Plex Mono';src:url('../fonts/ibm-plex-mono-latin-700-normal.woff2') format('woff2');font-weight:700;font-style:normal;font-display:block}
+
+/* --- Tokens ------------------------------------------------------------- */
+:root{
+  /* surfaces */
+  --ivory:#FBF8EF;      /* page background */
+  --paper:#F2EEE4;      /* cards, tables, tiles */
+  --sand:#F2E8D5;       /* working surfaces only (block libraries) */
+  --dusk:#262233;       /* data bands */
+  /* text & rules */
+  --ink:#1C1A17;
+  --ink-soft:#6F685C;
+  --line:#D9D2C3;
+  /* accents */
+  --accent:#B05A3C;     /* terracotta */
+  --lavender:#9B94C7;
+  --lilac:#D8D2E6;
+  --periwinkle:#CDD6EC;
+  --amber:#EBA23A;
+  --gold-sun:#F2CE97;
+  --mint:#D6EACF;
+  --peach:#F3DAC8;
+  /* tints, text on pastel */
+  --tint-lilac:#4A4370;
+  --tint-mint:#2E4A2A;
+  --tint-peach:#6E3B26;
+  --tint-periwinkle:#3A4166;
+  /* type */
+  --font-display:'Lora',Georgia,serif;
+  --font-sans:'Inter',system-ui,sans-serif;
+  --font-mono:'IBM Plex Mono',ui-monospace,monospace;
+  /* geometry */
+  --page-w:794px; --page-h:1123px; --margin:56px; --measure:682px;
+  --r-tag:999px; --r-surface:10px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:#8F8A80;font-family:var(--font-sans);-webkit-font-smoothing:antialiased}
+
+/* --- Page --------------------------------------------------------------- */
+.page{
+  width:var(--page-w);height:var(--page-h);padding:var(--margin);
+  background:var(--ivory);overflow:hidden;position:relative;
+  display:flex;flex-direction:column;
+  margin:0 auto 24px;
+}
+.page__content{flex:1 1 auto;display:flex;flex-direction:column;gap:40px;min-height:0}
+.page__content--tight{gap:34px}
+.page__content--nl{gap:26px}   /* tightened when the source lines moved into the blocks */
+.page__content--doc{gap:30px}
+.section{display:flex;flex-direction:column;gap:12px}      /* label -> content */
+.stack{display:flex;flex-direction:column}
+.row{display:flex;flex-direction:row}
+.grow{flex:1 1 auto;min-width:0}
+
+/* --- Logo --------------------------------------------------------------- */
+.logo{display:flex;align-items:flex-end;gap:7px;font-family:var(--font-display);line-height:1;font-size:19px}
+.logo__mark{font-weight:600;color:var(--ink)}
+.logo__word{font-weight:400;color:var(--lavender);letter-spacing:1px}
+.logo--cover{gap:7px;font-size:20px}
+.logo--cover .logo__mark{color:var(--ivory)}
+.logo--cover .logo__word{color:#FBF8EFB3}
+
+/* --- Running head / foot ------------------------------------------------ */
+.pagehead{display:flex;flex-direction:column;gap:13px;width:100%}
+.pagehead__row{display:flex;justify-content:space-between;align-items:center;gap:24px}
+.pagehead__meta{font-family:var(--font-mono);font-size:10.5px;line-height:14px;letter-spacing:1.2px;color:var(--ink-soft)}
+.rule{height:1px;width:100%;background:var(--line);flex:0 0 auto}
+.pagefoot{display:flex;flex-direction:column;gap:9px;width:100%;flex:0 0 auto}
+.pagefoot__row{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.pagefoot__meta,.pagefoot__page{font-family:var(--font-mono);font-size:9px;line-height:13px;letter-spacing:.6px;color:var(--ink-soft)}
+/* the newsletter footer sets lineHeight 1.3, not 1.4 -> 12px */
+.pagefoot--nl .pagefoot__meta,.pagefoot--nl .pagefoot__page{line-height:12px}
+
+/* --- Cover -------------------------------------------------------------- */
+.cover{
+  width:var(--page-w);height:var(--page-h);padding:var(--margin);overflow:hidden;position:relative;
+  display:flex;flex-direction:column;justify-content:space-between;
+  background-position:center;background-size:cover;background-repeat:no-repeat;margin:0 auto 24px;
+}
+.cover__scrim{position:absolute;inset:0;z-index:0;
+  background-image:linear-gradient(180deg,#201C2B8C 0%,#201C2B1A 24%,#201C2B26 44%,#201C2BD9 72%,#201C2BFC 100%)}
+.cover__scrim--fs{background-image:linear-gradient(180deg,#201C2B8C 0%,#201C2B1A 24%,#201C2B26 46%,#201C2BD9 74%,#201C2BFC 100%)}
+.cover__top{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;gap:24px}
+.cover__issue{font-family:var(--font-mono);font-size:11px;line-height:14px;letter-spacing:1.4px;color:#FBF8EFB3}
+.cover__bottom{position:relative;z-index:2;display:flex;flex-direction:column;gap:26px}
+.cover__rule{height:1px;width:100%;background:#FBF8EF40}
+.cover__notice{font-family:var(--font-mono);font-size:9px;line-height:13px;letter-spacing:.2px;color:#FBF8EF80}
+
+.masthead{display:flex;flex-direction:column;gap:14px;width:100%}
+.masthead__kicker{font-family:var(--font-mono);font-size:11px;line-height:14px;letter-spacing:2px;color:var(--lilac)}
+.masthead__kicker--sentence{letter-spacing:.6px}
+.masthead__headline{font-family:var(--font-display);font-size:56px;font-weight:500;line-height:59px;color:var(--ivory)}
+.masthead__standfirst{font-family:var(--font-sans);font-size:14px;line-height:22px;color:#FBF8EFCC;width:540px}
+
+/* cover figure strip: 4 columns, used by the fact sheet (values) and the
+   internal document (meta). Same skeleton, different value size. */
+.coverstrip{display:flex;gap:28px;width:100%}
+.coverstrip__col{flex:1 1 0;display:flex;flex-direction:column;gap:7px;min-width:0}
+.coverstrip__label{font-family:var(--font-mono);font-size:8.5px;line-height:11px;letter-spacing:1.1px;color:#FBF8EF99}
+.coverstrip__value{font-family:var(--font-mono);font-size:20px;font-weight:700;line-height:22px;color:var(--ivory)}
+.coverstrip--meta .coverstrip__value{font-size:13px;font-weight:500;line-height:16px}
+
+/* --- Tags, labels, headings --------------------------------------------- */
+.tag{display:inline-flex;align-items:center;background:var(--lilac);border-radius:var(--r-tag);
+  padding:6px 14px;font-family:var(--font-sans);font-size:11px;font-weight:500;line-height:14px;color:var(--tint-lilac);align-self:flex-start}
+.pill{display:inline-flex;align-items:center;background:var(--periwinkle);border:1px solid var(--lavender);
+  border-radius:var(--r-tag);padding:5px 12px;font-family:var(--font-sans);font-size:11px;font-weight:500;line-height:14px;color:var(--tint-periwinkle)}
+.heading{display:flex;align-items:flex-end;gap:7px}
+.heading__main{font-family:var(--font-display);font-size:15px;font-weight:500;line-height:18px;color:var(--ink)}
+.heading__suffix{font-family:var(--font-sans);font-size:10.5px;line-height:16px;color:var(--ink-soft)}
+
+/* --- Data band (1212 · Stat Row) ---------------------------------------- */
+.statrow{display:flex;justify-content:space-between;align-items:center;gap:24px;width:100%;
+  background:var(--dusk);border-radius:var(--r-surface);padding:20px 26px}
+.stat{display:flex;flex-direction:column;gap:7px}
+.stat__key{font-family:var(--font-mono);font-size:9px;line-height:12px;letter-spacing:1.1px;color:var(--lavender)}
+.stat__value{font-family:var(--font-mono);font-size:21px;font-weight:500;line-height:23px;color:var(--paper)}
+
+/* --- Tables ------------------------------------------------------------- */
+.table{display:flex;flex-direction:column;width:100%;background:var(--paper);
+  border-radius:var(--r-surface);overflow:hidden}
+.table__row{display:flex;width:100%;border-bottom:1px solid var(--line)}
+.table__row:last-child{border-bottom:0}
+.table__row--head{border-bottom:1px solid var(--line)}
+.table__row--hl{background:var(--lilac)}
+.cell{display:flex;align-items:center;padding:7px 11px;min-width:0}
+.cell--pad9{padding:9px 12px}
+.cell--end{justify-content:flex-end}
+.cell--head{font-family:var(--font-sans);font-size:9px;font-weight:600;line-height:13px;letter-spacing:1px;color:var(--ink-soft)}
+.cell--text{font-family:var(--font-sans);font-size:10.5px;line-height:15px;color:var(--ink)}
+.cell--fig{font-family:var(--font-mono);font-size:10.5px;line-height:15px;color:var(--ink);justify-content:flex-end}
+.cell--fig-accent{font-family:var(--font-mono);font-size:10.5px;font-weight:700;line-height:15px;color:var(--ink);justify-content:flex-end}
+.cell--strong{font-weight:700}
+.cell--mono{font-family:var(--font-mono);font-size:10px;line-height:14px}
+
+/* --- Small text blocks -------------------------------------------------- */
+.footnote{font-family:var(--font-sans);font-size:8.5px;font-style:italic;line-height:13px;color:var(--ink-soft);width:100%}
+.body-just{font-family:var(--font-sans);font-size:10.5px;line-height:17px;text-align:justify;color:var(--ink)}
+.note{font-family:var(--font-sans);font-size:10px;line-height:16px;color:var(--ink-soft)}
+.disclaimer{font-family:var(--font-sans);font-size:9.5px;line-height:15px;text-align:justify;color:var(--ink);width:100%}
+.commentary{display:flex;flex-direction:column;gap:10px;width:100%}
+.commentary__title{font-family:var(--font-display);font-size:20px;font-weight:500;line-height:24px;color:var(--ink)}
+.commentary__body{font-family:var(--font-sans);font-size:10.5px;line-height:17px;text-align:justify;color:var(--ink-soft)}
+
+.kv{display:flex;justify-content:space-between;align-items:center;gap:14px;width:100%}
+.kv__label{font-family:var(--font-sans);font-size:11px;line-height:17px;color:var(--ink-soft)}
+.kv__value{font-family:var(--font-sans);font-size:11px;font-weight:600;line-height:17px;color:var(--ink)}
+.kv--metric .kv__value{font-family:var(--font-mono);font-size:11.5px;font-weight:700;line-height:17px}
+.kv--sm .kv__label,.kv--sm .kv__value{font-size:10px;line-height:15px}
+
+.glossary{display:flex;flex-direction:column;gap:4px;width:100%}
+.glossary__term{font-family:var(--font-sans);font-size:10.5px;font-weight:700;line-height:15px;color:var(--ink)}
+.glossary__def{font-family:var(--font-sans);font-size:10px;line-height:16px;text-align:justify;color:var(--ink-soft)}
+.columns{display:flex;gap:30px;width:100%}
+.columns>*{width:326px;flex:0 0 326px;display:flex;flex-direction:column}
+
+/* --- Charts ------------------------------------------------------------- */
+/* Donut: segments in document order, clockwise from 12 o'clock.
+   Set --seg-N-end to the cumulative percentage. innerRadius 0.62. */
+/* innerRadius 0.62 of the outer radius. `closest-side` makes the gradient ray
+   equal the radius, so 62% is measured the same way Pencil measures it. */
+.donut{border-radius:50%;
+  -webkit-mask:radial-gradient(circle closest-side at 50% 50%,transparent 0 62%,#000 62.2%);
+  mask:radial-gradient(circle closest-side at 50% 50%,transparent 0 62%,#000 62.2%)}
+
+.legend{display:flex;align-items:center;gap:7px;width:100%}
+.legend__dot{width:10px;height:10px;border-radius:50%;flex:0 0 auto}
+.legend__label{font-family:var(--font-sans);font-size:11.5px;line-height:16px;color:var(--ink)}
+.legend__value{font-family:var(--font-mono);font-size:11.5px;font-weight:700;line-height:16px;color:var(--ink-soft);flex:1 1 auto;text-align:right}
+
+.exposure{display:flex;align-items:center;gap:8px;width:100%}
+.exposure__dot{width:12px;height:12px;border-radius:50%;flex:0 0 auto}
+.exposure__name{font-family:var(--font-sans);font-size:11px;font-weight:600;line-height:15px;color:var(--ink);width:76px;flex:0 0 76px}
+.exposure__bar{height:15px;flex:0 0 auto}
+.exposure__value{font-family:var(--font-mono);font-size:10.5px;line-height:15px;color:var(--ink-soft);flex:1 1 auto;text-align:right}
+
+.protocol{display:flex;align-items:center;gap:8px;width:100%}
+.protocol__mark{width:12px;height:12px;border-radius:50%;flex:0 0 auto}
+.protocol__name{font-family:var(--font-sans);font-size:11.5px;line-height:16px;color:var(--ink)}
+
+.barchart{display:flex;align-items:flex-end;gap:10px;width:100%;border-bottom:1px solid var(--line)}
+.barchart__col{flex:1 1 0;height:132px;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:6px}
+.barchart__value,.barchart__label{font-family:var(--font-mono);font-size:9px;line-height:11px;color:var(--ink-soft)}
+.barchart__label{letter-spacing:.6px}
+.barchart__bar{width:26px;background:var(--lavender)}
+.barchart__col--current .barchart__bar{background:var(--accent)}
+.barchart__col--current .barchart__value,.barchart__col--current .barchart__label{color:var(--ink)}
+
+/* --- Newsletter --------------------------------------------------------- */
+.nl-title{display:flex;flex-direction:column;gap:11px;width:100%}
+.nl-headline{font-family:var(--font-display);font-size:40px;font-weight:500;line-height:43px;color:var(--ink)}
+.nl-hero{width:100%;border-radius:var(--r-surface);background-position:center;background-size:cover;background-repeat:no-repeat;flex:0 0 auto}
+.nl-cols{display:flex;gap:26px;width:100%}
+.nl-cols>*{width:328px;flex:0 0 328px}
+.nl-body{font-family:var(--font-sans);font-size:12.5px;line-height:19px;text-align:justify;color:var(--ink-soft)}
+.nl-coverlines{display:flex;gap:26px;width:100%}
+.nl-coverline{width:210px;flex:0 0 210px;display:flex;flex-direction:column;gap:8px}
+.nl-coverline__topic{font-family:var(--font-mono);font-size:10px;line-height:13px;letter-spacing:1.6px;color:var(--lavender)}
+.nl-coverline__head{font-family:var(--font-display);font-size:15px;font-weight:400;line-height:19px;color:var(--ivory)}
+.briefs{display:flex;flex-direction:column;gap:24px;width:100%}
+.brief{display:flex;gap:24px;width:100%}
+.brief__img{width:200px;height:126px;flex:0 0 auto;border-radius:var(--r-surface);background-position:center;background-size:cover;background-repeat:no-repeat}
+.brief__text{flex:1 1 auto;display:flex;flex-direction:column;gap:9px;min-width:0}
+.brief__kicker{font-family:var(--font-mono);font-size:10px;line-height:13px;letter-spacing:1.6px;color:var(--ink-soft)}
+.brief__headline{font-family:var(--font-display);font-size:21px;font-weight:500;line-height:24px;color:var(--ink)}
+.brief__body{font-family:var(--font-sans);font-size:11.5px;line-height:18px;text-align:justify;color:var(--ink-soft)}
+
+/* --- Internal document -------------------------------------------------- */
+.doc-body{font-family:var(--font-sans);font-size:10.5px;line-height:17px;color:var(--ink);width:100%}
+.bullets{display:flex;flex-direction:column;gap:11px;width:100%}
+.bullet{display:flex;gap:10px;width:100%}
+.bullet__marker{width:10px;flex:0 0 10px;padding-top:7px;display:flex;flex-direction:column}
+.bullet__dot{width:4px;height:4px;border-radius:50%;background:var(--lavender)}
+.bullet__content{flex:1 1 auto;display:flex;flex-direction:column;gap:3px;min-width:0}
+.bullet__term{font-family:var(--font-sans);font-size:10.5px;font-weight:700;line-height:16px;color:var(--ink)}
+.bullet__text{font-family:var(--font-sans);font-size:10.5px;line-height:16px;color:var(--ink-soft)}
+.metaitems{display:flex;gap:22px;flex-wrap:wrap}
+.metaitem{display:flex;align-items:center;gap:6px}
+.metaitem__label{font-family:var(--font-sans);font-size:9.5px;font-weight:700;line-height:13px;color:var(--ink)}
+.metaitem__value{font-family:var(--font-sans);font-size:9.5px;line-height:13px;color:var(--ink-soft)}
+
+/* --- Print -------------------------------------------------------------- */
+@page{size:794px 1123px;margin:0}
+@media print{
+  body{background:#fff}
+  .page,.cover{margin:0;break-after:page;page-break-after:always}
+  .page:last-child,.cover:last-child{break-after:auto;page-break-after:auto}
+}
+
+/* ============================================================================
+   SOCIAL FORMATS  (from "1212 Capital — Assets")
+   16:9 = 1920x1080 · 1:1 = 1080x1080 · 9:16 = 1080x1920. Corner radius 24 is
+   for the canvas preview only; export flat if the platform crops.
+   ========================================================================= */
+.post{position:relative;overflow:hidden;border-radius:24px;display:flex;flex-direction:column;
+  justify-content:space-between;background-position:center;background-size:cover;margin:0 auto 24px}
+.post--169{width:1920px;height:1080px}
+.post--11{width:1080px;height:1080px;padding:43px 43px 48px}
+.post--916{width:1080px;height:1920px}
+.post__scrim{position:absolute;inset:0;z-index:0}
+.post__scrim--photo{background-image:
+  linear-gradient(0deg,#0E122000 44%,#0E122099 100%),
+  linear-gradient(180deg,#0E122000 38%,#0E1220E8 100%)}
+.post__scrim--square{background-image:
+  linear-gradient(0deg,#0E122000 60%,#0E1220A6 100%),
+  linear-gradient(180deg,#0E122000 35%,#0E1220ED 100%)}
+.post__top,.post__bottom{position:relative;z-index:1}
+.post__top{display:flex;justify-content:space-between;align-items:center}
+.post--169>.post__top{padding:55px 65px}
+.post--169>.post__bottom{padding:0 65px 62px;display:flex;flex-direction:column;gap:22px}
+.post__eyebrow{font-family:var(--font-mono);letter-spacing:2px;color:var(--lavender)}
+.post--169 .post__eyebrow{font-size:16px}
+.post--11 .post__eyebrow{font-size:13px}
+.logo--post{font-size:23px}
+.logo--post .logo__mark{color:var(--paper)}
+.logo--post .logo__word{color:var(--lavender)}
+.logo--post-sm{font-size:20px;gap:7px}
+.post__head{font-family:var(--font-display);font-size:96px;font-weight:500;line-height:94px;color:var(--paper);width:1440px;white-space:pre-line}
+.post__sub{font-family:var(--font-sans);font-size:23px;line-height:35px;color:#E7D8C6;width:912px}
+/* square stat */
+.post__stat{position:relative;z-index:1;display:flex;flex-direction:column;gap:9px}
+.post__stat-label{font-family:var(--font-mono);font-size:13px;letter-spacing:2px;color:#E7D8C6}
+.post__stat-big{font-family:var(--font-display);font-size:112px;font-weight:500;line-height:101px;color:var(--paper)}
+.post__stat-note{font-family:var(--font-sans);font-size:22px;color:#E7D8C6}
+/* 16:9 split, light */
+.post--statlight{flex-direction:row;background:var(--ivory);padding:0}
+.post__panel{width:1080px;height:1080px;flex:0 0 1080px;background:var(--ivory);padding:113px 96px;
+  display:flex;flex-direction:column;justify-content:space-between}
+.post__panel-label{font-family:var(--font-mono);font-size:19px;letter-spacing:2px;color:var(--lavender)}
+.post__panel-value{font-family:var(--font-display);font-size:180px;font-weight:500;line-height:180px;color:var(--ink)}
+.post__panel-foot{display:flex;justify-content:space-between;align-items:center;width:100%}
+.post__cta{font-family:var(--font-mono);font-size:18px;letter-spacing:1px;color:var(--ink-soft)}
+.post__side{flex:1 1 auto;background-position:center;background-size:cover}
+/* 16:9 split, dusk */
+.post--split{background:var(--dusk);flex-direction:column;justify-content:flex-start}
+.post__img{position:relative;width:100%;height:595px;background-position:center;background-size:cover;flex:0 0 595px}
+.post__img::after{content:"";position:absolute;inset:0;background-image:linear-gradient(180deg,#181228A8 0%,#18122800 34%)}
+.post__img .logo{position:absolute;left:77px;top:77px;z-index:2;font-size:33px;gap:9px}
+.post__img .logo .logo__mark{color:#FBF8EF}
+.post__img .logo .logo__word{color:#D8D2E6;font-weight:600}
+.post__block{flex:1 1 auto;display:flex;align-items:flex-end;justify-content:space-between;padding:0 77px 77px}
+.post__block-head{font-family:var(--font-display);font-size:102px;font-weight:400;line-height:104px;color:#FBF8EF;width:883px}
+.post__block-body{font-family:var(--font-sans);font-size:27px;line-height:41px;color:#C8C3D6;width:691px}
+
+/* ============================================================================
+   DATA PLATES  ·  EXTENSION, not yet present in 1212.pen
+   A hero-sized block that carries information instead of a photograph. Drops
+   into the newsletter's hero slot. Mirror these into the .pen before treating
+   them as part of the system.
+   ========================================================================= */
+.plate{width:100%;background:var(--paper);border-radius:var(--r-surface);
+  padding:24px;display:flex;flex-direction:column;gap:16px;flex:0 0 auto}
+.plate--dusk{background:var(--dusk)}
+.plate__head{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+.plate__label{font-family:var(--font-mono);font-size:10px;line-height:13px;letter-spacing:1.6px;color:var(--ink-soft)}
+.plate--dusk .plate__label{color:var(--lavender)}
+.plate__source{font-family:var(--font-mono);font-size:9px;line-height:12px;letter-spacing:.6px;color:var(--ink-soft)}
+.plate--dusk .plate__source{color:#8F89A6}
+.plate__rows{flex:1 1 auto;display:flex;flex-direction:column;justify-content:center;gap:13px}
+
+/* horizontal bars around a zero axis */
+.hbar{display:flex;align-items:center;gap:12px}
+.hbar__name{font-family:var(--font-sans);font-size:11px;font-weight:600;line-height:15px;color:var(--ink);width:104px;flex:0 0 104px}
+.hbar__track{flex:1 1 auto;position:relative;height:18px}
+.hbar__zero{position:absolute;top:-3px;bottom:-3px;width:1px;background:var(--line)}
+.hbar__fill{position:absolute;top:0;height:18px;background:var(--lavender)}
+.hbar__fill--neg{background:var(--accent)}
+.hbar__value{font-family:var(--font-mono);font-size:11px;font-weight:700;line-height:15px;color:var(--ink);width:66px;flex:0 0 66px;text-align:right}
+
+/* one figure carrying the page */
+.plate__figure{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex:1 1 auto}
+.plate__big{font-family:var(--font-display);font-size:76px;font-weight:500;line-height:76px;color:var(--paper)}
+.plate--light .plate__big{color:var(--ink)}
+.plate__caption{font-family:var(--font-sans);font-size:12px;line-height:19px;color:#C8C3D6;width:300px;padding-bottom:6px}
+.plate__aside{display:flex;gap:34px;padding-bottom:8px}
+.plate__aside .stat__value{font-size:17px;line-height:19px}
+
+/* stacked composition bar, for a market-share or allocation plate */
+.stackbar{display:flex;width:100%;height:44px;border-radius:6px;overflow:hidden}
+.stackbar__seg{height:44px}
+.plate__legend{display:flex;flex-wrap:wrap;gap:10px 26px}
+.leg{display:flex;align-items:center;gap:7px}
+.leg__dot{width:9px;height:9px;border-radius:50%;flex:0 0 auto}
+.leg__name{font-family:var(--font-sans);font-size:10.5px;font-weight:600;line-height:15px;color:var(--ink)}
+.leg__val{font-family:var(--font-mono);font-size:10.5px;line-height:15px;color:var(--ink-soft)}
+.leg__delta{font-family:var(--font-mono);font-size:9.5px;line-height:15px;color:var(--ink-soft)}
+
+/* entities named in a story, in place of a decorative thumbnail */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;background:var(--paper);border:1px solid var(--line);
+  border-radius:var(--r-tag);padding:5px 12px;font-family:var(--font-sans);font-size:10.5px;
+  font-weight:600;line-height:14px;color:var(--ink)}
+.brief--wide{flex-direction:column;gap:9px}
+
+/* ============================================================================
+   NEWSLETTER, source relocation  (1212.pen, Aug 2026)
+   The source line left the page footer and now sits under the block it belongs
+   to: inside `NL · Article Title`'s lead stack, and inside every `NL · Brief`.
+   The footer's right slot carries only the page number.
+   ========================================================================= */
+.nl-article{display:flex;flex-direction:column;gap:11px;width:100%}
+.nl-source{font-family:var(--font-mono);font-size:9px;line-height:12px;letter-spacing:1.4px;color:var(--ink-soft);width:100%}
+
+/* ============================================================================
+   CLIENT STATEMENT  (1212.pen — Client Statement · Monthly)
+   Introduces no component of its own. These are size variants of shared blocks.
+   ========================================================================= */
+.coverstrip--sm .coverstrip__value{font-size:12px;font-weight:500;line-height:15px}
+.disclaimer--soft{font-size:10px;line-height:16px;color:var(--ink-soft)}
+.page__content--stmt{gap:30px}
+.page__content--stmt-wide{gap:34px}
+.cols327{display:flex;gap:28px;width:100%}
+.cols327>*{width:327px;flex:0 0 327px;display:flex;flex-direction:column}
+
+/* chronology plate, for a page whose story is a sequence of dates */
+.timeline{display:flex;flex-direction:column;gap:0;width:100%}
+.tl{display:flex;gap:16px;align-items:baseline;padding:7px 0;border-bottom:1px solid var(--line)}
+.tl:last-child{border-bottom:0}
+.tl__date{font-family:var(--font-mono);font-size:10px;line-height:15px;letter-spacing:1.1px;color:var(--accent);width:78px;flex:0 0 78px}
+.tl__what{font-family:var(--font-sans);font-size:11px;font-weight:600;line-height:15px;color:var(--ink);width:150px;flex:0 0 150px}
+.tl__detail{font-family:var(--font-sans);font-size:11px;line-height:15px;color:var(--ink-soft);flex:1 1 auto}

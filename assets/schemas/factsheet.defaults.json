@@ -1,0 +1,110 @@
+{
+  "cover_image": "midi/opt-02.jpg",
+  "glossary": [
+    {
+      "term": "Stablecoin",
+      "def": "A digital asset designed to maintain a reference value, typically pegged to a fiat currency such as the U.S. dollar. Stability is not guaranteed. Risks include depegging, issuer risk, collateral risk, liquidity risk, and regulatory risk."
+    },
+    {
+      "term": "Collateralization / Verifiable Collateral",
+      "def": "The mechanism by which a stablecoin is backed by reserve assets. “Verifiable collateral” refers to disclosed or attested reserves but does not constitute a guarantee against loss."
+    },
+    {
+      "term": "Non-Directional Strategy",
+      "def": "An investment approach whose performance is not intended to depend on upward or downward movements of volatile crypto-assets. Non-directional does not mean risk-free."
+    },
+    {
+      "term": "DeFi (Decentralized Finance)",
+      "def": "A financial ecosystem built on blockchain networks using smart contracts to facilitate lending, borrowing, trading, and yield generation without traditional intermediaries."
+    },
+    {
+      "term": "On-Chain",
+      "def": "Transactions and positions executed and recorded directly on a blockchain, accessible through public ledgers. On-chain transparency does not eliminate operational or market risks."
+    },
+    {
+      "term": "Liquidity Providing / AMM (Automated Market Maker)",
+      "def": "The provision of assets to decentralized liquidity pools to facilitate trading, in exchange for fees and/or incentives. Risks include pool imbalance, smart contract failure, and changing incentive structures."
+    },
+    {
+      "term": "Incentives",
+      "def": "Rewards distributed by protocols (often in native tokens) to encourage participation. Incentives may fluctuate, be discontinued, or lose value and are not guaranteed."
+    },
+    {
+      "term": "Lending / Borrowing",
+      "def": "On-chain markets enabling users to lend assets to earn yield or borrow assets against collateral. Risks include liquidation risk, protocol risk, oracle risk, and liquidity constraints."
+    },
+    {
+      "term": "Fixed Yield / Principal Tokens",
+      "def": "Structures designed to lock in a predetermined yield over a defined period. Risks include pricing risk, secondary market liquidity risk, protocol risk, and execution risk."
+    },
+    {
+      "term": "Multisignature Wallet",
+      "def": "A wallet requiring multiple approvals to execute transactions. While it reduces single-key risk, it introduces governance and coordination risks."
+    }
+  ],
+  "risks": [
+    {
+      "term": "Market & valuation",
+      "def": "Digital asset markets can move sharply and valuations may be uncertain, particularly for assets with limited secondary liquidity."
+    },
+    {
+      "term": "Stablecoin depeg",
+      "def": "Stablecoins are not risk-free and may deviate from their intended reference value, temporarily or permanently."
+    },
+    {
+      "term": "Liquidity",
+      "def": "Positions may not be realizable at short notice, or at carrying value, during periods of market stress."
+    },
+    {
+      "term": "Counterparty & custody",
+      "def": "The strategy depends on protocols, venues and custody arrangements whose failure could impair or delay recovery of positions."
+    },
+    {
+      "term": "Smart contract & protocol",
+      "def": "Code may contain vulnerabilities. Exploits, governance failures, oracle failures and network congestion can each cause loss."
+    },
+    {
+      "term": "Regulatory",
+      "def": "The treatment of digital assets and decentralized finance is evolving and may change adversely, including with retroactive effect."
+    },
+    {
+      "term": "Operational",
+      "def": "Execution, reconciliation and key management processes carry the risk of human or system error."
+    }
+  ],
+  "legal": [
+    "This material is provided for informational purposes only and does not constitute an offer, solicitation, recommendation, or investment advice. Any investment opportunity, if offered, would be made solely pursuant to definitive legal documentation and subject to applicable eligibility requirements and jurisdictional restrictions.",
+    "This document is directed only at professional investors and eligible counterparties as defined under applicable law. It is not intended for, and should not be relied upon by, retail investors. Distribution may be restricted in certain jurisdictions and is the responsibility of the recipient to observe.",
+    "Performance information, where shown, reflects realized returns net of fees unless otherwise stated. Past performance is not indicative of future results. Performance data may reflect a limited operating history and may not be representative of future performance. Annualized returns may be derived from short observation periods and may vary over time.",
+    "Unless otherwise stated, all figures are as at the date shown on the cover and are sourced from Lagoon, on-chain data, and the providers named alongside each table. Net asset value is struck weekly; monthly returns are derived from the last published NAV of each month. Figures may not sum to totals due to rounding.",
+    "Investments in digital assets and decentralized finance strategies involve significant risks, including the potential loss of capital. Risks include market risk, liquidity risk, valuation risk, operational and technology risks, regulatory risk, and smart contract risk. Stablecoins are not risk-free and may deviate from their intended reference value.",
+    "DeFi strategies rely on blockchain infrastructure and smart contracts, which may be subject to vulnerabilities, exploits, governance failures, oracle failures, network congestion, and adverse execution. Audits and transparency practices reduce but do not eliminate these risks.",
+    "Benchmarks and comparative data are provided for reference purposes only and may be unmanaged, non-investable, and not reflective of fees or costs. This material does not consider the investment objectives or circumstances of any specific investor. Prospective investors should consult their own legal, tax, and financial advisers prior to investing."
+  ],
+  "issuer": [
+    [
+      "Issuer",
+      "[Legal entity name]"
+    ],
+    [
+      "Legal form",
+      "[Form. E.g. SAS]"
+    ],
+    [
+      "Registered office",
+      "[Registered address]"
+    ],
+    [
+      "Regulatory status",
+      "[Regulator + no. / non-regulated]"
+    ],
+    [
+      "Contact",
+      "contact@1212.capital"
+    ],
+    [
+      "Document version",
+      "FS-YYYY-MM · vN"
+    ]
+  ]
+}
