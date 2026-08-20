@@ -28,11 +28,11 @@ def head(meta):
     </div>'''
 
 
-def foot(n, total=2):
+def foot(n, total=2, ref=""):
     return f'''  <div class="pagefoot">
     <div class="rule"></div>
     <div class="pagefoot__row">
-      <div class="pagefoot__meta">1212 CAPITAL · CONFIDENTIAL · PREPARED FOR THE NAMED ACCOUNT HOLDER</div>
+      <div class="pagefoot__meta">1212 CAPITAL · CONFIDENTIAL · {ref}</div>
       <div class="pagefoot__page">{n} / {total}</div>
     </div>
   </div>'''
@@ -71,6 +71,7 @@ def table(header_row, rows):
 
 def build(d):
     c = d["client"]
+    ref = statement_ref(d)
     fund = fund_label(d)
     addr = short_address(c["address"])
     meta = f'{c["name"].upper()} · {fund.upper()} · {addr} · {d["as_of"].upper()}'
@@ -136,7 +137,7 @@ def build(d):
     </div>
 
   </div>
-{foot(1)}
+{foot(1, 2, ref)}
 </section>'''
 
     # inception to date, and no fee lines: fees are explained in Important
@@ -162,7 +163,7 @@ def build(d):
     </div>
 
   </div>
-{foot(2)}
+{foot(2, 2, ref)}
 </section>'''
 
     return f'''<!doctype html>
@@ -228,9 +229,6 @@ def statement_ref(data):
 def one(data, defaults, out, pdf):
     for k, v in defaults.items():
         data.setdefault(k, v)
-    # the reference must identify the fund too: one client can hold several
-    ref = statement_ref(data)
-    data["contact"] = [[a, ref if a == "Statement reference" else b] for a, b in data["contact"]]
     html = build(data)
     refuse_placeholders(html, out)
     pathlib.Path(out).parent.mkdir(parents=True, exist_ok=True)
