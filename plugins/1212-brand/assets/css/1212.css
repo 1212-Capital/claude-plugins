@@ -1,5 +1,5 @@
 /* ============================================================================
-   1212 Capital — document stylesheet
+   1212 Capital · document stylesheet
    Derived 1:1 from 1212.pen (Brand System + the three A4 templates).
    Every number here exists in the Pencil file. Do not invent new ones.
    ========================================================================= */
@@ -242,7 +242,7 @@ body{margin:0;background:#8F8A80;font-family:var(--font-sans);-webkit-font-smoot
 }
 
 /* ============================================================================
-   SOCIAL FORMATS  (from "1212 Capital — Assets")
+   SOCIAL FORMATS  (from "1212 Capital · Assets")
    16:9 = 1920x1080 · 1:1 = 1080x1080 · 9:16 = 1080x1920. Corner radius 24 is
    for the canvas preview only; export flat if the platform crops.
    ========================================================================= */
@@ -356,7 +356,7 @@ body{margin:0;background:#8F8A80;font-family:var(--font-sans);-webkit-font-smoot
 .nl-source{font-family:var(--font-mono);font-size:9px;line-height:12px;letter-spacing:1.4px;color:var(--ink-soft);width:100%}
 
 /* ============================================================================
-   CLIENT STATEMENT  (1212.pen — Client Statement · Monthly)
+   CLIENT STATEMENT  (1212.pen · Client Statement · Monthly)
    Introduces no component of its own. These are size variants of shared blocks.
    ========================================================================= */
 .coverstrip--sm .coverstrip__value{font-size:12px;font-weight:500;line-height:15px}

@@ -2,17 +2,13 @@
   "cover_image": "matin/opt-03.jpg",
   "currency": "USD",
   "legal": [
-    "This statement is prepared for the named account holder and reports holdings, movements and performance for the period shown. It is not a contract note, not a tax statement, and not a solicitation to buy or sell.",
-    "Valuations are struck at the last published net asset value of the period. Between valuation points the value of your holdings will move, and the figures shown may differ from the value realised on a subsequent redemption.",
-    "Performance is shown net of fees actually charged to this account and is specific to your subscription and redemption dates. It will therefore differ from the strategy level performance published in the monthly fact sheet.",
-    "Investments in digital assets and decentralized finance strategies involve significant risks, including the potential loss of capital. Risks include market risk, liquidity risk, valuation risk, operational and technology risks, regulatory risk, and smart contract risk.",
-    "Please review this statement and report any discrepancy within XX days. In the absence of notice within that period the statement will be treated as accepted."
+    "This statement is prepared for the named account holder and reports holdings, movements and performance for the fund shown. It is not a contract note, not a tax statement, and does not constitute advice.",
+    "All figures in this statement are net of fees. The net asset value per share is struck after fees have been accrued, so the performance, the portfolio value and the gain or loss shown here already reflect every charge. Do not deduct fees a second time from these numbers.",
+    "The fee structure is as follows. There is no management fee. A performance fee of 20% applies to gains above the fund's high-water mark, so it is charged only on new profit and only once the previous peak has been exceeded. The fee is crystallised at settlement of each epoch, at which point the high-water mark is reset to the new peak.",
+    "Where the return shown here differs from the return published for the fund over the same period, the difference comes from the timing of your own subscriptions and redemptions, not from a different calculation. Money that arrived part-way through the period earns for part of the period only.",
+    "[LEGAL TO CONFIRM] Please review this statement and report any discrepancy within [XX] days. In the absence of notice within that period the statement will be treated as accepted."
   ],
   "contact": [
-    [
-      "Relationship manager",
-      "Name"
-    ],
     [
       "Email",
       "contact@1212.capital"
@@ -27,7 +23,7 @@
     ],
     [
       "Statement reference",
-      "CS-YYYY-MM · XXXX-XXXX"
+      "CS-YYYY-MM \u00b7 XXXX-XXXX"
     ],
     [
       "Reporting frequency",
@@ -35,5 +31,5 @@
     ]
   ],
   "positions_note": "Valued at the last published NAV of the period. Weights may not sum to 100% due to rounding.",
-  "movements_note": "Movements settle at the NAV struck on the dealing date, which may differ from the instruction date."
+  "movements_note": "Movements are shown since inception of the account in this fund, not for the period alone."
 }

@@ -18,6 +18,35 @@ One statement per client per period. Cover + 3 pages, 794 × 1123 (true A4 at
 96 dpi), 56 px margins, 682 px measure. Read `1212-brand-kit` first if the
 palette and type rules are not already loaded.
 
+
+## One statement per fund
+
+A client holding 1212.Stable and 1212.Alpha receives **two statements**, never a
+blend. `fund` is required in the input. It appears on the cover, in every page
+head, in the statement reference and in the file name, so two statements for the
+same client in the same month can never collide or be confused.
+
+The batch is therefore **one statement per account and fund held**, not one per
+account. When checking that nobody was silently left out of a batch, count
+account-fund pairs.
+
+**Cash.** If cash is held at account level rather than per fund, it does not
+belong on a per-fund statement, or it must be attributed per fund. Otherwise a
+client who adds two statements counts it twice.
+
+## Controls before sending
+
+- Movements are inception-to-date, so the reconciliation is too: movements must
+  agree with net contributions **since inception**, not over the period.
+- The address is truncated one way only, `0x1234\u20265678`, identical on the
+  cover, in the page heads and in the reference.
+- Every figure is already net of fees. The NAV per share is struck after fee
+  accrual. Never subtract the performance fee a second time.
+- The fund return is still computed even though it is no longer printed: it is
+  what tells you whether the account return is plausible.
+- The build refuses to run on any unresolved placeholder. If it stops, fill the
+  field, never edit the HTML afterwards.
+
 ## The distinction that governs this document
 
 The fact sheet reports **the strategy**. This reports **the client**. Every

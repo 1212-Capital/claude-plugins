@@ -109,13 +109,24 @@ Two consequences worth knowing before editing `1212.css`:
 - The newsletter Content gap is 26, not 30, since the source lines moved into
   the article and brief blocks.
 
-## Extensions, not in the .pen
+## Data blocks
 
-Data plates (`.plate`, `.hbar`, `.stackbar`, `.timeline`) and entity chips
-(`.chip`) were added so an inner page can carry information where a decorative
-photograph used to sit. They follow the palette and the type roles but they do
-not exist as Pencil components yet. Mirror them into `1212.pen` before treating
-them as part of the system.
+Data plates (`.plate`, `.hbar`, `.stackbar`) and entity chips (`.chip`) let an
+inner page carry information where a decorative photograph used to sit. They
+exist as Pencil components too, in the newsletter Blocks Library under
+**MEDIA & DATA**: `NL · Plate · Comparison`, `NL · Plate · Figure`,
+`NL · Plate · Composition`, `NL · Chip Row`, plus the `NL · Bar Row` and
+`NL · Legend Item` bricks they are built from.
+
+Three things differ from CSS because Pencil expresses them differently, and the
+.pen is the authority:
+
+- The zero axis is structural: a fixed-width negative half, a hairline, then a
+  filling positive half. Not a percentage offset.
+- `align-items: baseline` does not exist in Pencil. Plate heads use `end`.
+- A row does not wrap, so a chip row stays on one line.
+
+Inner pages carry no landscape. The cover keeps it.
 
 ## Source
 

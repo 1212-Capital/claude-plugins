@@ -7,7 +7,7 @@
     },
     {
       "term": "Collateralization / Verifiable Collateral",
-      "def": "The mechanism by which a stablecoin is backed by reserve assets. “Verifiable collateral” refers to disclosed or attested reserves but does not constitute a guarantee against loss."
+      "def": "The mechanism by which a stablecoin is backed by reserve assets. \u201cVerifiable collateral\u201d refers to disclosed or attested reserves but does not constitute a guarantee against loss."
     },
     {
       "term": "Non-Directional Strategy",
@@ -91,20 +91,12 @@
       "[Form. E.g. SAS]"
     ],
     [
-      "Registered office",
-      "[Registered address]"
-    ],
-    [
       "Regulatory status",
       "[Regulator + no. / non-regulated]"
     ],
     [
       "Contact",
       "contact@1212.capital"
-    ],
-    [
-      "Document version",
-      "FS-YYYY-MM · vN"
     ]
   ]
 }

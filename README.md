@@ -5,18 +5,29 @@ Add it once, install what you need, and updates arrive when we push here.
 
 ## Install
 
+**In Cowork**, which is what most people at 1212 use. Open **Customize** in the
+sidebar, then **Plugins**, then **Add marketplace**, and enter:
+
+```
+1212-Capital/claude-plugins
+```
+
+The catalogue appears as **1212-capital**. Open it and click **Install** on
+**1212-brand**. Nothing to authenticate: the repository is public, so no GitHub
+account or credentials are involved.
+
+When a new version ships, click **Update** on the marketplace, then reinstall.
+Installing without updating first replays the cached catalogue.
+
+**In Claude Code**, the CLI or the Code tab, the same thing in two commands:
+
 ```
 /plugin marketplace add 1212-Capital/claude-plugins
 /plugin install 1212-brand@1212-capital
 ```
 
-In the desktop app, the same thing without the terminal: the **+** button next
-to the prompt box, then **Plugins** and **Add plugin**.
-
-This repository is private, so the first command needs your GitHub access to
-the 1212-Capital org. If you are already signed in with `gh auth login` or an
-SSH key, it just works. If Claude cannot reach the repository, ask Noah rather
-than fighting with credentials.
+Both surfaces need a paid Claude plan. Plugins run in Cowork and Code, not in
+Chat.
 
 ## Plugins
 

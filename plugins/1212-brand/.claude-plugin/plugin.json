@@ -1,6 +1,6 @@
 {
   "name": "1212-brand",
-  "version": "1.2.0",
+  "version": "1.4.0",
   "description": "1212 Capital's brand system and its four A4 document templates: fact sheet, newsletter, internal document, client statement. Renders pixel-identically to the Pencil source, with or without Pencil.",
   "author": {
     "name": "1212 Capital"

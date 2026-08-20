@@ -15,6 +15,19 @@ ASSETS = HERE.parent
 RAMP = ["lavender", "gold-sun", "accent", "periwinkle", "amber"]
 
 
+PLACEHOLDER_MARKS = ("DD/MM/YYYY", "MMM YYYY", "XX.XX", "[TBD]", "TODO", "Lorem ipsum")
+
+
+def refuse_placeholders(html, where):
+    hits = sorted({m for m in PLACEHOLDER_MARKS if m in html})
+    if hits:
+        sys.exit(
+            f"{where}: refusing to build, unresolved placeholder(s) still present: "
+            + ", ".join(repr(h) for h in hits)
+            + ".\nEvery figure must come from the performance kit, not from the example file."
+        )
+
+
 def e(x):
     return html.escape(str(x), quote=False)
 
@@ -42,11 +55,11 @@ def head(meta):
     </div>'''
 
 
-def foot(n, total):
+def foot(n, total, version=""):
     return f'''  <div class="pagefoot">
     <div class="rule"></div>
     <div class="pagefoot__row">
-      <div class="pagefoot__meta">1212 Capital  ·  contact@1212.capital  ·  Confidential</div>
+      <div class="pagefoot__meta">1212 Capital  ·  contact@1212.capital  ·  Confidential{version}</div>
       <div class="pagefoot__page">{n} / {total}</div>
     </div>
   </div>'''
@@ -77,6 +90,8 @@ def table(header, rows, colw=240):
 
 
 def donut(segments, size=210):
+    """A ring for a real composition. One segment at 100% carries no information,
+    so the caller should use single_segment_plate() instead; see allocation()."""
     stops, acc = [], 0.0
     for i, s in enumerate(segments):
         col = s.get("color", RAMP[i % len(RAMP)])
@@ -109,21 +124,21 @@ def exposure(rows):
     return "\n".join(out)
 
 
-def protocols(names):
-    half = (len(names) + 1) // 2
-    cols = [names[:half], names[half:]]
-    out = ['      <div class="columns">']
-    n = 0
-    for col in cols:
-        out.append('        <div style="gap:11px">')
-        for name in col:
-            out.append(f'          <div class="protocol"><span class="protocol__mark" '
-                       f'style="background:var(--{RAMP[n % len(RAMP)]})"></span>'
-                       f'<span class="protocol__name">{e(name)}</span></div>')
-            n += 1
-        out.append('        </div>')
-    out.append('      </div>')
-    return "\n".join(out)
+def protocols(rows):
+    """Exposure bars, like the stablecoins block. The old two-column list filled
+    by column while the eye reads by row, so the data ramp came out shuffled.
+    Bars read top to bottom, which puts the ramp back in order.
+
+    Accepts the legacy list of bare names; those render without a bar, because
+    a bar with no percentage behind it would be a decoration pretending to be data.
+    """
+    if rows and isinstance(rows[0], str):
+        return "\n".join(
+            f'        <div class="exposure"><span class="exposure__dot" '
+            f'style="background:var(--{RAMP[i % len(RAMP)]})"></span>'
+            f'<span class="exposure__name">{e(n)}</span></div>'
+            for i, n in enumerate(rows))
+    return exposure(rows)
 
 
 def returns_table(mr):
@@ -159,6 +174,8 @@ def entries(items, gap):
 # --- pages ------------------------------------------------------------------
 
 def build(d):
+    # the audit trail leaves the Issuer block but stays on the page
+    ver = f'  ·  {d["version"]}' if d.get("version") else ""
     meta = f'{d["product"]["name"].upper()} · FACT SHEET · AS OF {d["as_of"].upper()}'
     p = d["product"]
     total = 4
@@ -229,7 +246,7 @@ def build(d):
     </div>
 
   </div>
-{foot(1, total)}
+{foot(1, total, ver)}
 </section>'''
 
     a = d["allocation"]
@@ -237,12 +254,12 @@ def build(d):
   <div class="page__content page__content--tight">
 {head(meta)}
 
-    <div class="tag">CURRENT ALLOCATION</div>
+    <div class="tag">{e(a.get("tag", "CURRENT ALLOCATION"))}</div>
 
     <div class="section">
       <div class="heading"><span class="heading__main">{e(a.get("heading", "Strategy Allocation"))}</span><span class="heading__suffix">{e(a.get("suffix", "% of NAV"))}</span></div>
       <div class="row" style="gap:40px;align-items:center">
-        {donut(a["segments"])}
+        {donut(a["segments"]) if len(a["segments"]) > 1 else ""}
         <div class="stack grow" style="gap:18px">
           <div class="stack" style="gap:10px">
 {legend(a["segments"])}
@@ -261,7 +278,9 @@ def build(d):
 
     <div class="section">
       <div class="heading"><span class="heading__main">Protocols Exposure</span></div>
+      <div class="stack" style="gap:11px">
 {protocols(d["protocols"])}
+      </div>
     </div>
 
     <div class="footnote">{e(d["allocation_source"])}</div>
@@ -273,7 +292,7 @@ def build(d):
     </div>
 
   </div>
-{foot(2, total)}
+{foot(2, total, ver)}
 </section>'''
 
     page3 = f'''<section class="page">
@@ -283,19 +302,19 @@ def build(d):
     <div class="section">
       <div class="tag">GLOSSARY</div>
       <div class="columns">
-{entries(d["glossary"], 19)}
+{entries(sorted(d["glossary"], key=lambda x: x["term"].lower()), 19)}
       </div>
     </div>
 
     <div class="section">
       <div class="tag">RISK CONSIDERATIONS</div>
       <div class="columns">
-{entries(d["risks"], 15)}
+{entries(sorted(d["risks"], key=lambda x: x["term"].lower()), 15)}
       </div>
     </div>
 
   </div>
-{foot(3, total)}
+{foot(3, total, ver)}
 </section>'''
 
     half = (len(d["issuer"]) + 1) // 2
@@ -320,14 +339,14 @@ def build(d):
     </div>
 
   </div>
-{foot(4, total)}
+{foot(4, total, ver)}
 </section>'''
 
     return f'''<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>{e(p["name"])} — Fact Sheet — {e(d["as_of"])}</title>
+<title>{e(p["name"])} · Fact Sheet · {e(d["as_of"])}</title>
 <link rel="stylesheet" href="{d.get("css", "../css/1212.css")}">
 </head>
 <body>
@@ -369,7 +388,9 @@ def main():
     data.setdefault("css", str(ASSETS / "css" / "1212.css"))
     data.setdefault("cover_image_base", str(ASSETS / "img") + "/")
     pathlib.Path(out).parent.mkdir(parents=True, exist_ok=True)
-    pathlib.Path(out).write_text(build(data))
+    html = build(data)
+    refuse_placeholders(html, out)
+    pathlib.Path(out).write_text(html)
     print("HTML ->", out)
     if "--pdf" in sys.argv:
         pdf = sys.argv[sys.argv.index("--pdf") + 1]

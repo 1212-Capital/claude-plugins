@@ -1,5 +1,4 @@
 {
-  "copyright": "Original artwork, copyright 2026 1212 Capital Inc. All rights reserved. Not licensed for redistribution or reuse outside 1212 Capital documents.",
   "note": "The 18 brand landscapes, catalogued so a document can pick a cover on purpose. Attributes are what is visible, not mood words.",
   "axes": {
     "time": [
@@ -210,6 +209,15 @@
     "newsletter": "figures allowed, they warm an editorial cover.",
     "client-statement": "figures allowed, prefer matin or midi. This one is personal.",
     "social": "figures allowed on announcement formats, avoid on stat formats where the figure is the subject.",
-    "always": "never reuse the previous issue's image, and recheck the scrim after any swap."
+    "always": "Documents use the fixed cover for their type. Social assets still pick by mood.",
+    "covers": {
+      "policy": "One fixed cover per document type. Do not vary it between issues.",
+      "why": "A recognisable cover is worth more than novelty on a document a client receives every month. Varying it made each issue look like a different publication.",
+      "fact sheet": "midi/opt-02.jpg",
+      "newsletter": "midi/opt-01.jpg",
+      "internal document": "midi/opt-06.jpg",
+      "client statement": "matin/opt-03.jpg",
+      "override": "Only on explicit request, and say which image was used."
+    }
   }
 }

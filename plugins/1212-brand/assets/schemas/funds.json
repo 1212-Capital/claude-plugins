@@ -1,6 +1,6 @@
 {
   "note": "One entry per 1212 vault. `copy` drives the fact sheet wording; a directional fund must not inherit a capital-preservation description. Add a fund by pasting its Lagoon address and filling `copy`.",
-  "source": "https://app.lagoon.finance/vault/{chain}/{address} — readable with WebFetch. GraphQL API at https://api.lagoon.finance/query (open, no auth) when the environment can reach it.",
+  "source": "https://app.lagoon.finance/vault/{chain}/{address} · readable with WebFetch. GraphQL API at https://api.lagoon.finance/query (open, no auth) when the environment can reach it.",
   "funds": {
     "stable": {
       "name": "1212.Stable",

@@ -28,12 +28,12 @@ def head(meta):
     </div>'''
 
 
-def foot(n):
+def foot(n, total=2):
     return f'''  <div class="pagefoot">
     <div class="rule"></div>
     <div class="pagefoot__row">
       <div class="pagefoot__meta">1212 CAPITAL · CONFIDENTIAL · PREPARED FOR THE NAMED ACCOUNT HOLDER</div>
-      <div class="pagefoot__page">{n} / 3</div>
+      <div class="pagefoot__page">{n} / {total}</div>
     </div>
   </div>'''
 
@@ -71,7 +71,9 @@ def table(header_row, rows):
 
 def build(d):
     c = d["client"]
-    meta = f'{c["name"].upper()} · ACCOUNT {c["account"]} · {d["as_of"].upper()}'
+    fund = fund_label(d)
+    addr = short_address(c["address"])
+    meta = f'{c["name"].upper()} · {fund.upper()} · {addr} · {d["as_of"].upper()}'
     img = d.get("cover_image_base", str(ASSETS / "img") + "/") + d.get("cover_image", "matin/opt-03.jpg")
 
     cover = f'''<section class="cover" style="background-image:url('{img}')">
@@ -82,23 +84,25 @@ def build(d):
   </div>
   <div class="cover__bottom">
     <div class="masthead">
-      <div class="masthead__kicker">STATEMENT OF ACCOUNT</div>
+      <div class="masthead__kicker">STATEMENT OF ACCOUNT · {e(fund.upper())}</div>
       <div class="masthead__headline">{e(c["name"])}</div>
       <div class="masthead__standfirst">Your holdings, movements and performance for the period, prepared by 1212 Capital.</div>
     </div>
     <div class="cover__rule"></div>
     <div class="coverstrip coverstrip--sm">
-      <div class="coverstrip__col"><div class="coverstrip__label">ACCOUNT</div><div class="coverstrip__value">{e(c["account"])}</div></div>
+      <div class="coverstrip__col"><div class="coverstrip__label">ADDRESS</div><div class="coverstrip__value">{e(addr)}</div></div>
       <div class="coverstrip__col"><div class="coverstrip__label">PERIOD</div><div class="coverstrip__value">{e(d["period"])}</div></div>
       <div class="coverstrip__col"><div class="coverstrip__label">CURRENCY</div><div class="coverstrip__value">{e(d.get("currency", "USD"))}</div></div>
-      <div class="coverstrip__col"><div class="coverstrip__label">RELATIONSHIP</div><div class="coverstrip__value">{e(c["manager"])}</div></div>
+      <div class="coverstrip__col"><div class="coverstrip__label">FUND</div><div class="coverstrip__value">{e(fund)}</div></div>
     </div>
     <div class="cover__notice">Prepared for the named account holder. Not a contract note and not for onward distribution.</div>
   </div>
 </section>'''
 
-    pos_rows = [[(p["strategy"], None, False), (p["units"], 110, True), (p["nav"], 110, True),
-                 (p["value"], 130, True), (p["weight"], 90, True)] for p in d["positions"]]
+    cur = d.get("currency", "USD")
+    pos_rows = [[(p["strategy"], None, False), (p["units"], 100, True), (p["nav"], 100, True),
+                 (p["value"], 120, True), (p.get("currency", cur), 60, True),
+                 (p["weight"], 80, True)] for p in d["positions"]]
 
     page1 = f'''<section class="page">
   <div class="page__content page__content--stmt">
@@ -107,17 +111,17 @@ def build(d):
     <div class="section">
       <div class="tag">PORTFOLIO SUMMARY</div>
       <div class="statrow">
-''' + "\n".join(f'        <div class="stat"><div class="stat__key">{e(h["label"])}</div>'
-                f'<div class="stat__value">{e(h["value"])}</div></div>' for h in d["headline"]) + f'''
+''' + "\n".join(f'        <div class="stat"><div class="stat__key">{e(k)}</div>'
+                f'<div class="stat__value">{e(v)}</div></div>' for k, v in [
+                    (h["label"], h["value"]) if isinstance(h, dict) else h for h in d["headline"]]) + f'''
       </div>
     </div>
 
     <div class="cols327">
       <div style="gap:12px">
         <div class="tag">ACCOUNT</div>
-{kvs([("Account number", c["account"]), ("Account type", c["type"]),
-      ("Base currency", d.get("currency", "USD")), ("Opened", c["opened"]),
-      ("Relationship manager", c["manager"])])}
+{kvs([("Address", addr), ("Fund", fund),
+      ("Base currency", d.get("currency", "USD")), ("Opened", c["opened"])])}
       </div>
       <div style="gap:12px">
         <div class="tag">YOUR PERFORMANCE</div>
@@ -127,7 +131,7 @@ def build(d):
 
     <div class="section">
       <div class="tag">POSITIONS</div>
-{table([("Strategy", None, False), ("Units", 110, True), ("NAV", 110, True), ("Value", 130, True), ("Weight", 90, True)], pos_rows)}
+{table([("Strategy", None, False), ("Units", 100, True), ("NAV", 100, True), ("Value", 120, True), ("Ccy", 60, True), ("Weight", 80, True)], pos_rows)}
       <div class="footnote">{e(d["positions_note"])}</div>
     </div>
 
@@ -135,64 +139,30 @@ def build(d):
 {foot(1)}
 </section>'''
 
-    mv_rows = [[(m["date"], 110, False), (m["type"], 170, False), (m["strategy"], None, False),
-                (m["amount"], 150, True)] for m in d["movements"]]
-    fee_rows = [[(f["item"], None, False), (f["basis"], 220, False), (f["amount"], 150, True)]
-                for f in d["fees"]]
-    com = d["commentary"]
+    # inception to date, and no fee lines: fees are explained in Important
+    # Information now, and every figure on this statement is already net of them.
+    movements = [m for m in d.get("movements_since_inception", d.get("movements", []))
+                 if m.get("type", "").lower() != "fee"]
+    mv_rows = [[(m["date"], 110, False), (m["type"], 190, False),
+                (m["amount"], 150, True), (m.get("currency", cur), 70, True)] for m in movements]
 
     page2 = f'''<section class="page">
   <div class="page__content page__content--stmt">
 {head(meta)}
 
     <div class="section">
-      <div class="tag">MOVEMENTS THIS PERIOD</div>
-{table([("Date", 110, False), ("Type", 170, False), ("Strategy", None, False), ("Amount", 150, True)], mv_rows)}
+      <div class="tag">MOVEMENTS SINCE INCEPTION</div>
+{table([("Date", 110, False), ("Type", 190, False), ("Amount", 150, True), ("Ccy", 70, True)], mv_rows)}
       <div class="footnote">{e(d["movements_note"])}</div>
     </div>
 
     <div class="section">
-      <div class="tag">FEES &amp; COSTS</div>
-{table([("Item", None, False), ("Basis", 220, False), ("This period", 150, True)], fee_rows)}
-    </div>
-
-    <div class="section">
-      <div class="tag">COMMENTARY</div>
-      <div class="commentary">
-        <div class="commentary__title">{e(com["title"])}</div>
-''' + "\n".join(f'        <div class="commentary__body">{e(p)}</div>' for p in com["body"]) + f'''
-      </div>
+      <div class="tag">IMPORTANT INFORMATION</div>
+''' + "\n".join(f'      <div class="disclaimer disclaimer--soft">{e(x)}</div>' for x in d["legal"]) + f'''
     </div>
 
   </div>
 {foot(2)}
-</section>'''
-
-    contact = d["contact"]
-    half = (len(contact) + 1) // 2
-    page3 = f'''<section class="page">
-  <div class="page__content page__content--stmt-wide">
-{head(meta)}
-
-    <div class="section">
-      <div class="tag">IMPORTANT INFORMATION</div>
-''' + "\n".join(f'      <div class="disclaimer disclaimer--soft">{e(p)}</div>' for p in d["legal"]) + f'''
-    </div>
-
-    <div class="section">
-      <div class="tag">QUESTIONS ON THIS STATEMENT</div>
-      <div class="cols327">
-        <div style="gap:9px">
-{kvs(contact[:half], "kv kv--sm")}
-        </div>
-        <div style="gap:9px">
-{kvs(contact[half:], "kv kv--sm")}
-        </div>
-      </div>
-    </div>
-
-  </div>
-{foot(3)}
 </section>'''
 
     return f'''<!doctype html>
@@ -206,20 +176,65 @@ def build(d):
 {cover}
 {page1}
 {page2}
-{page3}
 </body>
 </html>
 '''
 
 
+# Placeholders that must never reach a client. A document that prints one of
+# these is worse than a document that fails to build: nobody notices.
+PLACEHOLDER_MARKS = ("XX days", "DD/MM/YYYY", "MMM YYYY", "XX.XX", "0000-0000",
+                     "[TBD]", "TODO", "Example Family Trust", "Lorem ipsum")
+
+
+def refuse_placeholders(html, where):
+    hits = sorted({m for m in PLACEHOLDER_MARKS if m in html})
+    if hits:
+        sys.exit(
+            f"{where}: refusing to build, unresolved placeholder(s) still present: "
+            + ", ".join(repr(h) for h in hits)
+            + ".\nFill them in the input file, or in statement.defaults.json for the legal copy."
+        )
+
+
+FUND_LABELS = {"stable": "1212.Stable", "alpha": "1212.Alpha"}
+
+
+def fund_label(data):
+    """The fund this statement covers. One statement per fund, never a blend."""
+    f = data.get("fund")
+    if not f:
+        sys.exit("statement: 'fund' is required. One statement per fund; say which one.")
+    return data.get("fund_label") or FUND_LABELS.get(f, f)
+
+
+def short_address(addr):
+    """The one truncation used everywhere: cover, page heads, statement reference."""
+    a = str(addr)
+    if not a.startswith("0x") or len(a) < 12:
+        sys.exit(f"statement: expected an ERC-20 address, got {a!r}")
+    return f"{a[:6]}\u2026{a[-3:]}"
+
+
+def statement_ref(data):
+    """CS-2026-07 · STABLE · 0xbb30…eb5 · unique per account, month and fund."""
+    return " \u00b7 ".join([
+        data.get("reference", "CS"),
+        data.get("fund", "").upper(),
+        short_address(data["client"]["address"]),
+    ])
+
+
 def one(data, defaults, out, pdf):
     for k, v in defaults.items():
         data.setdefault(k, v)
-    # the statement reference carries the account number
-    ref = f'{data.get("reference", "CS")} · {data["client"]["account"]}'
+    # the reference must identify the fund too: one client can hold several
+    ref = statement_ref(data)
     data["contact"] = [[a, ref if a == "Statement reference" else b] for a, b in data["contact"]]
+    html = build(data)
+    refuse_placeholders(html, out)
     pathlib.Path(out).parent.mkdir(parents=True, exist_ok=True)
-    pathlib.Path(out).write_text(build(data))
+    pathlib.Path(out).write_text(html)
     print("HTML ->", out)
     if pdf:
         subprocess.run([sys.executable, str(HERE / "render_pdf.py"), out, pdf], check=True)
@@ -237,10 +252,19 @@ def main():
     if "--batch" in sys.argv:
         accounts = data if isinstance(data, list) else data["accounts"]
         base = data.get("common", {}) if isinstance(data, dict) else {}
+        written = set()
         for acc in accounts:
             merged = {**base, **acc}
-            slug = f'{merged.get("reference", "CS")}-{merged["client"]["account"]}'.replace(" ", "")
+            slug = "-".join([
+                merged.get("reference", "CS"),
+                merged.get("fund", ""),
+                short_address(merged["client"]["address"]).replace("\u2026", ""),
+            ]).replace(" ", "")
             out = str(pathlib.Path(dest) / f"{slug}.html")
+            if out in written:
+                sys.exit(f"statement: two accounts produce the same file {out!r}. "
+                         "Check that fund and address differ.")
+            written.add(out)
             one(merged, defaults, out, out.replace(".html", ".pdf") if want_pdf else None)
     else:
         pdf = None

@@ -39,15 +39,16 @@ reply.
 
 ### The cover image
 
-Every document gets a different cover. `assets/img/catalogue.json` describes all
-18 landscapes: time of day, scene (sea, mountain, lake, valley, dune,
-architecture), whether people are visible, and where the frame is busy. Ask one
-question, four options: **dawn** (cool lilac), **noon** (bright blue), **dusk**
-(warm orange), or **pick for me**. Then apply the catalogue's `rules`: no
-figures on a fact sheet or an internal document, figures allowed on a
-newsletter or a statement, never the previous issue's image, and recheck the
-scrim after any swap. State which image you used so it can be overridden in one
-line.
+**Documents do not get a cover question.** Each document type has one fixed
+cover, listed in `assets/img/catalogue.json` under `rules.covers`: fact sheet
+`midi/opt-02`, newsletter `midi/opt-01`, internal document `midi/opt-06`,
+client statement `matin/opt-03`. A client who receives the same document every
+month should recognise it; varying the cover made each issue look like a
+different publication. Change it only if asked, and say which image you used.
+
+**Social assets still get the question**, because each post is a one-off. Ask
+dawn, noon, dusk, or pick for me, then apply the catalogue's rules: no figures
+on anything that reads as a document, and recheck the scrim after a swap.
 
 ## The brand in one paragraph
 
@@ -76,7 +77,11 @@ Signature line: **"Clarity, compounded, since 2022."**
   rules, no heavier weights.
 - **Warm accents are reserved.** amber, gold-sun and terracotta belong to data
   and highlights. They do not decorate.
-- **No em dashes anywhere in copy.** Use a period or a comma.
+- **No em dashes in anything a reader receives.** Document copy, headings,
+  captions, social text, and the `<title>` that lands in the PDF metadata:
+  use a period, a comma, or a middle dot. This is checked by grepping the
+  templates, the builders and the CSS. Prose inside these skill files is
+  instruction for Claude, not copy, and is out of scope.
 - **Data ramp, always in this order:** lavender → gold-sun → terracotta →
   periwinkle → amber. Donut segments, exposure dots, protocol marks and legends
   all draw from it.
