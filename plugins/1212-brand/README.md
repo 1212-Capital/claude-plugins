@@ -128,6 +128,15 @@ Three things differ from CSS because Pencil expresses them differently, and the
 
 Inner pages carry no landscape. The cover keeps it.
 
+## Changelog
+
+- **1.4.2** (August 2026). Logotype weight: `CAPITAL` is now Lora 600, the
+  same as `1212`, still letter-spaced 1px. `.logo__word` in `1212.css` and the
+  brand kit's logotype notes follow `1212.pen`. The square lockup is `1212`
+  large over `CAPITAL` in spaced capitals, on paper, ivory, sand and dusk
+  grounds only. The reference PDFs in the brand kit were regenerated.
+- **1.4.1**. The client statement prints its reference in the page footer.
+
 ## Source
 
 `1212.pen` — frames *Brand System*, *Brand Kit*, *Assets*, *Fact Sheet ·

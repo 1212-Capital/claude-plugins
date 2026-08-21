@@ -67,9 +67,10 @@ body{margin:0;background:#8F8A80;font-family:var(--font-sans);-webkit-font-smoot
 .grow{flex:1 1 auto;min-width:0}
 
 /* --- Logo --------------------------------------------------------------- */
+/* Both words Lora 600 (CAPITAL was 400 until Aug 2026); CAPITAL letter-spaced 1px. */
 .logo{display:flex;align-items:flex-end;gap:7px;font-family:var(--font-display);line-height:1;font-size:19px}
 .logo__mark{font-weight:600;color:var(--ink)}
-.logo__word{font-weight:400;color:var(--lavender);letter-spacing:1px}
+.logo__word{font-weight:600;color:var(--lavender);letter-spacing:1px}
 .logo--cover{gap:7px;font-size:20px}
 .logo--cover .logo__mark{color:var(--ivory)}
 .logo--cover .logo__word{color:#FBF8EFB3}
@@ -291,7 +292,7 @@ body{margin:0;background:#8F8A80;font-family:var(--font-sans);-webkit-font-smoot
 .post__img::after{content:"";position:absolute;inset:0;background-image:linear-gradient(180deg,#181228A8 0%,#18122800 34%)}
 .post__img .logo{position:absolute;left:77px;top:77px;z-index:2;font-size:33px;gap:9px}
 .post__img .logo .logo__mark{color:#FBF8EF}
-.post__img .logo .logo__word{color:#D8D2E6;font-weight:600}
+.post__img .logo .logo__word{color:#D8D2E6}
 .post__block{flex:1 1 auto;display:flex;align-items:flex-end;justify-content:space-between;padding:0 77px 77px}
 .post__block-head{font-family:var(--font-display);font-size:102px;font-weight:400;line-height:104px;color:#FBF8EF;width:883px}
 .post__block-body{font-family:var(--font-sans);font-size:27px;line-height:41px;color:#C8C3D6;width:691px}

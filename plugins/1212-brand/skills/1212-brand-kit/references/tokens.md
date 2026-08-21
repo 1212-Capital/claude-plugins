@@ -28,7 +28,7 @@ compute `round(size × ratio)` with **round-half-up** (11 × 1.5 = 16.5 → 17).
 
 | Pencil component | CSS | Spec |
 |---|---|---|
-| `1212 · Logo` | `.logo` | row, gap 7, align end. `1212` Lora 19/600 ink · `CAPITAL` Lora 19/400 lavender, ls 1. lh 1 |
+| `1212 · Logo` | `.logo` | row, gap 7, align end. `1212` Lora 19/600 ink · `CAPITAL` Lora 19/600 lavender, ls 1. lh 1. Both words semibold since Aug 2026 |
 | — on a cover | `.logo.logo--cover` | size 20, `1212` ivory, `CAPITAL` #FBF8EFB3 |
 | `1212 · Cover Masthead` | `.masthead` | column, gap 14. Kicker mono 11 ls 2 lilac lh 14 · Headline Lora 56/500 lh 59 ivory · Standfirst Inter 14 lh 22 #FBF8EFCC, width 540 |
 | `1212 · Section Label` | `.tag` | lilac pill, r999, padding 6/14, Inter 11/500 lh 14, tint-lilac |
