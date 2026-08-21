@@ -121,6 +121,12 @@ Disclaimer Paragraph, Key Fact Row and Metric Row. The IDs did not change.
 footer into the article and brief blocks. The newsletter Content gap went from
 30 to 26.
 
+Later in the month the logotype changed weight: `CAPITAL` in `1212 · Logo`
+(`s3X54`) went from Lora 400 to Lora 600, so both words are now semibold, with
+`CAPITAL` still letter-spaced. The square lockup in the Brand Kit frame was
+redrawn as `1212` large over `CAPITAL` in spaced capitals, on four grounds
+(paper, ivory, sand, dusk); the ink ground was removed.
+
 ## Monthly build recipe
 
 ```js

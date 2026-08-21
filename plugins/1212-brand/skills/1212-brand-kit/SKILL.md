@@ -128,10 +128,19 @@ All three are free on Google Fonts. Offline copies ship in
 
 ## Logotype
 
-`1212` in Lora 600 + `CAPITAL` in Lora 400 with `letter-spacing: 1px`, bottom
-aligned, gap 7 (gap 8-9 at larger sizes). `1212` takes `ink` on light and
-`ivory`/`paper` on dark; `CAPITAL` is always `lavender` (or `lilac` at large
-display sizes on dark). Give it room to breathe. Never redraw or restyle it.
+Both words in Lora 600: `1212` + `CAPITAL`, with `CAPITAL` letter-spaced
+(`letter-spacing: 1px` at 40px, about 0.025em; 0.4-1px at the 19-20px document
+size), bottom aligned, gap 7 (gap 8-9 at larger sizes). `CAPITAL` was Lora 400
+until August 2026; any artefact still showing it in regular weight is out of
+date. `1212` takes `ink` on light and `ivory`/`paper` on dark; `CAPITAL` is
+always `lavender` (`lavender-deep #6E6796` on the reversed lockup, `lilac` at
+large display sizes over a photograph). Give it room to breathe. Never redraw
+or restyle it.
+
+**Square lockup.** `1212` large over `CAPITAL` set as letter-spaced capitals
+(on a 1024 square: `1212` at 390px, `CAPITAL` at 81px). It exists on four
+grounds only: paper, ivory, sand, dusk. There is no ink ground. The exported
+files live in the brand kit under `Logos/Square/`.
 
 ## Imagery
 
