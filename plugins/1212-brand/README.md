@@ -1,8 +1,9 @@
-# 1212 Capital — brand plugin
+# 1212 Capital brand plugin
 
 Everything needed to produce an on-brand 1212 Capital artefact without opening
-the Pencil file: the design tokens, the voice, the three A4 document templates
-and the four social canvases.
+the Pencil file: the design tokens, the voice, the four A4 document templates
+(fact sheet, newsletter, internal document, client statement) and the four
+social canvases.
 
 ## Who this is for
 
@@ -41,24 +42,26 @@ assets/
 ├── css/1212.css              the design system, verified against Pencil
 ├── fonts/                    Lora · Inter · IBM Plex Mono, offline
 ├── img/{matin,midi,soir}/    the 18 brand landscapes
+├── img/catalogue.json        the landscapes catalogued: scene, figures, per-document rules
 ├── templates/                factsheet · newsletter · internal-doc · client-statement · social
 ├── schemas/                  fact sheet and statement contracts, defaults, examples
 └── scripts/
-    ├── new_doc.py             template -> a working copy, paths made absolute
+    ├── new_doc.py            template -> a working copy, paths made absolute
     ├── build_factsheet.py    JSON -> fact sheet HTML (+ PDF)
     ├── build_statement.py    JSON -> client statement, single or batch
     ├── measure_pages.py      how full each Content stack is, before exporting
     ├── render_pdf.py         HTML -> A4 PDF (and per-page PNGs)
+    ├── check_pdf.py          a PDF's JPEGs declared with the right colour transform (no magenta covers)
     └── render_png.py         social HTML -> PNG per canvas
 ```
 
 ## Two production routes
 
-**Pencil** — highest fidelity, stays editable, needs the app open on
+**Pencil**: highest fidelity, stays editable, needs the app open on
 `1212.pen`. Component IDs and the build recipe are in the brand kit's
 `references/pencil.md`.
 
-**Self-contained HTML → PDF** — works anywhere. Requires Python with
+**Self-contained HTML → PDF**: works anywhere. Requires Python with
 Playwright and a Chromium build; no network, since the fonts and images ship
 with the plugin.
 
@@ -139,7 +142,7 @@ Inner pages carry no landscape. The cover keeps it.
 
 ## Source
 
-`1212.pen` — frames *Brand System*, *Brand Kit*, *Assets*, *Fact Sheet ·
+`1212.pen`, frames *Brand System*, *Brand Kit*, *Assets*, *Fact Sheet ·
 Monthly*, *Newsletter · Monthly*, *Internal Document · Template*, including the
 three long guide notes attached to the document templates. When the .pen and
 this plugin disagree, the .pen wins; update the plugin and re-run the diff.
