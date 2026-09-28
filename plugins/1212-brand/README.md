@@ -1,8 +1,9 @@
 # 1212 Capital brand plugin
 
 Everything needed to produce an on-brand 1212 Capital artefact without opening
-the Pencil file: the design tokens, the voice, the three A4 document templates
-and the four social canvases.
+the Pencil file: the design tokens, the voice, the four A4 document templates
+(fact sheet, newsletter, internal document, client statement) and the four
+social canvases.
 
 ## Who this is for
 
@@ -41,14 +42,16 @@ assets/
 ├── css/1212.css              the design system, verified against Pencil
 ├── fonts/                    Lora · Inter · IBM Plex Mono, offline
 ├── img/{matin,midi,soir}/    the 18 brand landscapes
+├── img/catalogue.json        the landscapes catalogued: scene, figures, per-document rules
 ├── templates/                factsheet · newsletter · internal-doc · client-statement · social
 ├── schemas/                  fact sheet and statement contracts, defaults, examples
 └── scripts/
-    ├── new_doc.py             template -> a working copy, paths made absolute
+    ├── new_doc.py            template -> a working copy, paths made absolute
     ├── build_factsheet.py    JSON -> fact sheet HTML (+ PDF)
     ├── build_statement.py    JSON -> client statement, single or batch
     ├── measure_pages.py      how full each Content stack is, before exporting
     ├── render_pdf.py         HTML -> A4 PDF (and per-page PNGs)
+    ├── check_pdf.py          a PDF's JPEGs declared with the right colour transform (no magenta covers)
     └── render_png.py         social HTML -> PNG per canvas
 ```
 
