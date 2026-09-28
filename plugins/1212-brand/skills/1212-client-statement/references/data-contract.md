@@ -9,8 +9,8 @@ your file falls back to the defaults.
 
 | Key | Type | Notes |
 |---|---|---|
-| `period` | string | `"1 to 31 July 2026"`. Shown on the cover. |
-| `as_of` | string | `"31 Jul 2026"`. Upper-cased into the running head. |
+| `period` | string | `D to D MMMM YYYY` within one month, `"1 to 31 July 2026"`; `D MMM to D MMM YYYY` when it spans months, `"1 Jul to 30 Sep 2026"` (the only abbreviated form). Shown on the cover, on one line. |
+| `as_of` | string | `D MMMM YYYY`, `"31 July 2026"`. Upper-cased into the running head. |
 | `reference` | string | `"CS-2026-07"`. The account number is appended automatically. |
 | `client.name` | string | Appears as the cover headline and in the running head. |
 | `client.account` | string | `"0000-0000"` |
@@ -39,7 +39,7 @@ your file falls back to the defaults.
 
 ```json
 {
-  "common": { "period": "1 to 31 July 2026", "as_of": "31 Jul 2026", "reference": "CS-2026-07" },
+  "common": { "period": "1 to 31 July 2026", "as_of": "31 July 2026", "reference": "CS-2026-07" },
   "accounts": [ { "client": {...}, "headline": [...], ... }, { ... } ]
 }
 ```

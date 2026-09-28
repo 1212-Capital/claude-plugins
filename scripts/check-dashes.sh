@@ -16,7 +16,8 @@
 # Scanned: tracked files ending in .md .mdx .ts .tsx .js .jsx .mjs .json .css .sql .yml .yaml .html .txt .py,
 # and the files named in NAMES (.env.example).
 # Excluded: node_modules, .next, dist, build, .git, and *.pen (the Pencil design
-# files are binary; the text files under design/ are read like any other).
+# files are JSON, but their frame names must match the design tool exactly, dashes
+# included; the text files under design/ are read like any other).
 #
 # Runs from the repo root and from CI. Exit 1 when anything is found, so it can
 # gate a merge.
@@ -85,7 +86,7 @@ collect() {
   fi
 }
 
-# Generated and dependency trees, and the binary Pencil files.
+# Generated and dependency trees, and the Pencil files (frame names kept as drawn).
 excluded() {
   case "$1" in
     node_modules/*|*/node_modules/*) return 0 ;;

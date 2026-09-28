@@ -9,8 +9,8 @@
 #
 # Each case runs the script in a throwaway git repository. Must fail, naming the file:
 # an em dash, an en dash, an em dash in .mdx, an &mdash; entity, both dashes in one file, --quiet (exit 1,
-# no output). Must pass: a clean tree, a dash under design/ or node_modules/ (excluded),
-# a line carrying the allow marker, a .pen file. Read: text under design/, .env.example.
+# no output). Must pass: a clean tree, a dash in a .pen file or under node_modules/
+# (excluded), a line carrying the allow marker. Read: text under design/, .env.example.
 
 set -euo pipefail
 

@@ -361,6 +361,9 @@ body{margin:0;background:#8F8A80;font-family:var(--font-sans);-webkit-font-smoot
    Introduces no component of its own. These are size variants of shared blocks.
    ========================================================================= */
 .coverstrip--sm .coverstrip__value{font-size:12px;font-weight:500;line-height:15px}
+/* PERIOD holds the longest monthly period on one line: "1 to 30 September 2026" is 22
+   characters of Plex Mono 12 px, 158.4 px. The three other columns share the rest. */
+.coverstrip--sm .coverstrip__col--period{flex:0 0 164px}
 .disclaimer--soft{font-size:10px;line-height:16px;color:var(--ink-soft)}
 .page__content--stmt{gap:30px}
 .page__content--stmt-wide{gap:34px}

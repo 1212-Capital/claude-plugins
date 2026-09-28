@@ -89,7 +89,10 @@ python3 ${CLAUDE_PLUGIN_ROOT}/assets/scripts/build_statement.py \
 
 In batch form the JSON is `{"common": {...}, "accounts": [{...}, {...}]}`, or a
 bare list. `common` carries whatever every account shares that period: the
-period string, the as-of date, the reference prefix. Files are named from the
+period string, the as-of date, the reference prefix. The period reads
+`D to D MMMM YYYY` within one month (`1 to 31 July 2026`) and
+`D MMM to D MMM YYYY` across months (`1 Jul to 30 Sep 2026`, the only abbreviated
+form); the as-of date reads `31 July 2026`. Files are named from the
 reference and the account number. Schema: `references/data-contract.md`.
 
 For a one-off shape the builder does not cover, start from the template:
@@ -106,7 +109,9 @@ Pencil route: duplicate `U6CYQ` and override the instances. See
 **Cover.** Brand image (default `matin/opt-03.jpg`) under the 5-stop scrim.
 Logo top left, `CONFIDENTIAL · CLIENT STATEMENT` top right. Then the kicker,
 the client name in Lora 56, a standfirst, a hairline, a four-column meta strip
-(account, period, currency, relationship manager), and the notice.
+(account, period, currency, relationship manager), and the notice. The
+period column is 164 px wide so the longest monthly period, `1 to 30 September
+2026`, stays on one line.
 
 **Page 1: Portfolio Summary.** The dusk stat row with four headline figures,
 then Account and Your Performance side by side at 327 px each, then the
