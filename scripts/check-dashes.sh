@@ -10,11 +10,13 @@
 #   bash scripts/check-dashes.sh            list every offending line
 #   bash scripts/check-dashes.sh --quiet    exit code only
 #
-# Copied from 1212-Capital/app. Here it also reads .mdx, .mjs and .txt.
+# Shared 1212 Capital dash check: the same script in each 1212 Capital repository,
+# with the file types that repository holds.
 #
-# Scanned extensions: .md .mdx .ts .tsx .js .jsx .mjs .json .css .sql .yml .yaml .html .txt
-# Excluded: node_modules, .next, dist, build, .git, and every file under design/
-# because design/ holds the binary 1212.pen, which cannot be read as text.
+# Scanned: tracked files ending in .md .mdx .ts .tsx .js .jsx .mjs .json .css .sql .yml .yaml .html .txt .py,
+# and the files named in NAMES (.env.example).
+# Excluded: node_modules, .next, dist, build, .git, and *.pen (the Pencil design
+# files are binary; the text files under design/ are read like any other).
 #
 # Runs from the repo root and from CI. Exit 1 when anything is found, so it can
 # gate a merge.
@@ -46,7 +48,8 @@ if [ "${1:-}" = "--quiet" ]; then
   QUIET=1
 fi
 
-EXTS="md mdx ts tsx js jsx mjs json css sql yml yaml html txt"
+EXTS="md mdx ts tsx js jsx mjs json css sql yml yaml html txt py"
+NAMES=".env.example"
 
 # Tracked files inside a git checkout (the CI case) and a filesystem walk
 # otherwise, so the script still works before the first commit.
@@ -56,6 +59,10 @@ collect() {
     local e
     for e in $EXTS; do
       globs+=("*.${e}")
+    done
+    local n
+    for n in $NAMES; do
+      globs+=("${n}" "*/${n}")
     done
     git ls-files -- "${globs[@]}"
   else
@@ -70,11 +77,15 @@ collect() {
         args+=( -o -name "*.${e}" )
       fi
     done
+    local n
+    for n in $NAMES; do
+      args+=( -o -name "${n}" )
+    done
     find . -type f \( "${args[@]}" \)
   fi
 }
 
-# Generated and dependency trees, plus all of design/.
+# Generated and dependency trees, and the binary Pencil files.
 excluded() {
   case "$1" in
     node_modules/*|*/node_modules/*) return 0 ;;
@@ -82,7 +93,7 @@ excluded() {
     dist/*|*/dist/*) return 0 ;;
     build/*|*/build/*) return 0 ;;
     .git/*|*/.git/*) return 0 ;;
-    design/*|*/design/*) return 0 ;;
+    *.pen) return 0 ;;
   esac
   return 1
 }

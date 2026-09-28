@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 #
 # Proves that scripts/check-dashes.sh catches what it must, and only that, under a
-# given bash, including the macOS /bin/bash (3.2), where the old script passed
-# everything. Copied from 1212-Capital/app, plus .mdx and .txt cases:
+# given bash, including the macOS /bin/bash (3.2), where an older version passed
+# everything. The shared 1212 Capital dash check self-test:
 #
 #   bash scripts/test-check-dashes.sh
 #   BASH_BIN=/bin/bash bash scripts/test-check-dashes.sh
@@ -10,7 +10,7 @@
 # Each case runs the script in a throwaway git repository. Must fail, naming the file:
 # an em dash, an en dash, an em dash in .mdx, an &mdash; entity, both dashes in one file, --quiet (exit 1,
 # no output). Must pass: a clean tree, a dash under design/ or node_modules/ (excluded),
-# a line carrying the allow marker.
+# a line carrying the allow marker, a .pen file. Read: text under design/, .env.example.
 
 set -euo pipefail
 
@@ -85,8 +85,17 @@ new_case; printf 'A plain line - with a hyphen, and 1-31 July.\n' > "$d/clean.md
 run_case "$d" pass "a clean tree passes"
 
 new_case; mkdir -p "$d/design" "$d/node_modules/pkg"
-printf 'excluded %s\n' "$EM" > "$d/design/notes.md"; printf 'excluded %s\n' "$EN" > "$d/node_modules/pkg/index.js"
-run_case "$d" pass "a dash under design/ or node_modules/ is excluded"
+printf 'excluded %s\n' "$EM" > "$d/design/1212.pen"; printf 'excluded %s\n' "$EN" > "$d/node_modules/pkg/index.js"
+run_case "$d" pass "a .pen file and node_modules/ are excluded"
+
+new_case; mkdir -p "$d/design"; printf 'A spec %s under design\n' "$EM" > "$d/design/spec.md"
+run_case "$d" fail "a text file under design/ is read" "design/spec.md"
+
+new_case; printf '# Site URL %s required\nNEXT_PUBLIC_SITE_URL=\n' "$EM" > "$d/.env.example"
+run_case "$d" fail "a dash in .env.example fails" ".env.example"
+
+new_case; printf 'EMPTY = "%s"\n' "$EM" > "$d/build.py"
+run_case "$d" fail "an em dash in a .py file fails" "build.py"
 
 new_case; printf 'The character %s is banned. check-dashes:allow\n' "$EM" > "$d/about.md"
 run_case "$d" pass "a line carrying the allow marker passes"
