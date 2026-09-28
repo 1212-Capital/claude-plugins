@@ -1,4 +1,4 @@
-# 1212 Capital — brand plugin
+# 1212 Capital brand plugin
 
 Everything needed to produce an on-brand 1212 Capital artefact without opening
 the Pencil file: the design tokens, the voice, the three A4 document templates
@@ -54,11 +54,11 @@ assets/
 
 ## Two production routes
 
-**Pencil** — highest fidelity, stays editable, needs the app open on
+**Pencil**: highest fidelity, stays editable, needs the app open on
 `1212.pen`. Component IDs and the build recipe are in the brand kit's
 `references/pencil.md`.
 
-**Self-contained HTML → PDF** — works anywhere. Requires Python with
+**Self-contained HTML → PDF**: works anywhere. Requires Python with
 Playwright and a Chromium build; no network, since the fonts and images ship
 with the plugin.
 
@@ -130,6 +130,12 @@ Inner pages carry no landscape. The cover keeps it.
 
 ## Changelog
 
+- **1.4.3** (September 2026). No em dash or en dash left in the skills, their
+  references and the README, except where the text needs the character: a
+  frame name in `1212.pen` that the skills match by name, the rule that an
+  empty statement cell prints an em dash, and the statement period format.
+  Those lines carry the `check-dashes:allow` marker. `scripts/check-dashes.sh`
+  checks the repository.
 - **1.4.2** (August 2026). Logotype weight: `CAPITAL` is now Lora 600, the
   same as `1212`, still letter-spaced 1px. `.logo__word` in `1212.css` and the
   brand kit's logotype notes follow `1212.pen`. The square lockup is `1212`
@@ -139,7 +145,7 @@ Inner pages carry no landscape. The cover keeps it.
 
 ## Source
 
-`1212.pen` — frames *Brand System*, *Brand Kit*, *Assets*, *Fact Sheet ·
+`1212.pen`, frames *Brand System*, *Brand Kit*, *Assets*, *Fact Sheet ·
 Monthly*, *Newsletter · Monthly*, *Internal Document · Template*, including the
 three long guide notes attached to the document templates. When the .pen and
 this plugin disagree, the .pen wins; update the plugin and re-run the diff.

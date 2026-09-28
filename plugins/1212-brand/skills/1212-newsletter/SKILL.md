@@ -8,10 +8,10 @@ description: >
   the Pencil build and the self-contained HTML to PDF build.
 metadata:
   version: "1.0.0"
-  source: "1212.pen — Newsletter · Monthly"
+  source: "1212.pen: Newsletter · Monthly"
 ---
 
-# 1212 Capital — monthly newsletter
+# 1212 Capital monthly newsletter
 
 Cover + 3 section pages, 794 × 1123 (true A4 at 96 dpi), 56 px margins, 682 px
 measure. Same geometry as the fact sheet, so the two documents read as one
@@ -145,6 +145,6 @@ split the story across two pages.
 
 ## References
 
-- `1212-brand-kit/references/tokens.md` — CSS classes and component specs
-- `1212-brand-kit/references/voice.md` — tone and approved lines
-- `1212-brand-kit/references/pencil.md` — the Pencil build
+- `1212-brand-kit/references/tokens.md`: CSS classes and component specs
+- `1212-brand-kit/references/voice.md`: tone and approved lines
+- `1212-brand-kit/references/pencil.md`: the Pencil build

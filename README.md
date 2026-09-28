@@ -1,4 +1,4 @@
-# 1212 Capital — Claude plugins
+# 1212 Capital Claude plugins
 
 The marketplace 1212 Capital uses to distribute its Claude plugins internally.
 Add it once, install what you need, and updates arrive when we push here.

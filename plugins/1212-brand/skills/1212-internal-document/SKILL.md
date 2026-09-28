@@ -9,10 +9,10 @@ description: >
   to PDF build.
 metadata:
   version: "1.0.0"
-  source: "1212.pen — Internal Document · Template"
+  source: "1212.pen: Internal Document · Template"
 ---
 
-# 1212 Capital — internal document
+# 1212 Capital internal document
 
 One skeleton for every long-form internal document: due diligence, investment
 reviews, frameworks, memos. Cover plus as many section pages as the content
@@ -39,7 +39,7 @@ Take the owner from the person asking unless they say otherwise.
 
 ## Build
 
-Start from the template, duplicate the `Doc · Page — Analysis` section as many
+Start from the template, duplicate the `Doc · Page — Analysis` section as many <!-- check-dashes:allow (the frame name in 1212.pen, matched by name) -->
 times as the content needs, renumber the footers, then render:
 
 ```bash
@@ -134,6 +134,6 @@ pages; repeat the tag only if the reader would otherwise lose the thread.
 
 ## References
 
-- `1212-brand-kit/references/tokens.md` — CSS classes and component specs
-- `1212-brand-kit/references/voice.md` — tone and mechanics
-- `1212-brand-kit/references/pencil.md` — the Pencil build
+- `1212-brand-kit/references/tokens.md`: CSS classes and component specs
+- `1212-brand-kit/references/voice.md`: tone and mechanics
+- `1212-brand-kit/references/pencil.md`: the Pencil build

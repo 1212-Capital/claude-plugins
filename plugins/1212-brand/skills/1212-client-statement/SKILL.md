@@ -9,10 +9,10 @@ description: >
   every account.
 metadata:
   version: "1.0.0"
-  source: "1212.pen — Client Statement · Monthly"
+  source: "1212.pen: Client Statement · Monthly"
 ---
 
-# 1212 Capital — client statement
+# 1212 Capital client statement
 
 One statement per client per period. Cover + 3 pages, 794 × 1123 (true A4 at
 96 dpi), 56 px margins, 682 px measure. Read `1212-brand-kit` first if the
@@ -108,15 +108,15 @@ Logo top left, `CONFIDENTIAL · CLIENT STATEMENT` top right. Then the kicker,
 the client name in Lora 56, a standfirst, a hairline, a four-column meta strip
 (account, period, currency, relationship manager), and the notice.
 
-**Page 1 — Portfolio Summary.** The dusk stat row with four headline figures,
+**Page 1: Portfolio Summary.** The dusk stat row with four headline figures,
 then Account and Your Performance side by side at 327 px each, then the
 Positions table. Your Performance carries a `Fund, same period` line so the
 client sees the gap between their return and the strategy's. Content gap 30.
 
-**Page 2 — Activity & Fees.** Movements for the period, then fees and costs,
+**Page 2: Activity & Fees.** Movements for the period, then fees and costs,
 then a commentary written for this account. Content gap 30.
 
-**Page 3 — Important Information.** Five paragraphs and a contact block.
+**Page 3: Important Information.** Five paragraphs and a contact block.
 Content gap 34.
 
 ## Rules specific to this document
@@ -129,7 +129,7 @@ Content gap 34.
 - **The movements table is the block that grows.** Add rows freely. If the page
   passes 988 px, move the commentary to page 3 rather than shrinking anything.
 - **Signs are explicit.** Subscriptions and gains carry `+`, redemptions and
-  fees carry `−` (U+2212, not a hyphen). An empty cell is an em dash `—`, which
+  fees carry `−` (U+2212, not a hyphen). An empty cell is an em dash `—`, which <!-- check-dashes:allow (the rule shows the character) -->
   is the one place the no-em-dash rule does not apply because it is a glyph and
   not prose.
 - **Issuer and Regulatory status ship as bracketed placeholders.** Fill them
@@ -153,6 +153,6 @@ Content gap 34.
 
 ## References
 
-- `references/data-contract.md` — the JSON schema, field by field
-- `1212-brand-kit/references/tokens.md` — CSS classes and component specs
-- `1212-brand-kit/references/pencil.md` — the Pencil build
+- `references/data-contract.md`: the JSON schema, field by field
+- `1212-brand-kit/references/tokens.md`: CSS classes and component specs
+- `1212-brand-kit/references/pencil.md`: the Pencil build
