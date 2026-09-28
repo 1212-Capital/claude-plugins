@@ -44,8 +44,7 @@ plugins/<name>/                    one folder per plugin, each with its own
 ```
 
 To add a plugin, drop its folder under `plugins/` and add an entry to
-`marketplace.json`. `metadata.pluginRoot` is already `./plugins`, so the entry's
-`source` is just the folder name.
+`marketplace.json` whose `source` is the folder's path, `./plugins/<name>`.
 
 ## Publishing an update
 
