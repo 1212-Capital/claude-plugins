@@ -131,11 +131,12 @@ Inner pages carry no landscape. The cover keeps it.
 ## Changelog
 
 - **1.4.3** (September 2026). No em dash or en dash left in the skills, their
-  references and the README, except where the text needs the character: a
-  frame name in `1212.pen` that the skills match by name, the rule that an
-  empty statement cell prints an em dash, and the statement period format.
-  Those lines carry the `check-dashes:allow` marker. `scripts/check-dashes.sh`
-  checks the repository.
+  references, the templates and the README. The client statement follows the
+  rule too: its period reads `1 to 31 July 2026` and an empty cell prints
+  `n/a`. The only dashes left are in frame names of `1212.pen`, which the
+  skills match by name; those lines carry the `check-dashes:allow` marker.
+  `scripts/check-dashes.sh` checks the repository. The stylesheet header
+  counts four A4 templates, not three.
 - **1.4.2** (August 2026). Logotype weight: `CAPITAL` is now Lora 600, the
   same as `1212`, still letter-spaced 1px. `.logo__word` in `1212.css` and the
   brand kit's logotype notes follow `1212.pen`. The square lockup is `1212`

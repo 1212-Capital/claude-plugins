@@ -129,9 +129,8 @@ Content gap 34.
 - **The movements table is the block that grows.** Add rows freely. If the page
   passes 988 px, move the commentary to page 3 rather than shrinking anything.
 - **Signs are explicit.** Subscriptions and gains carry `+`, redemptions and
-  fees carry `−` (U+2212, not a hyphen). An empty cell is an em dash `—`, which <!-- check-dashes:allow (the rule shows the character) -->
-  is the one place the no-em-dash rule does not apply because it is a glyph and
-  not prose.
+  fees carry `−` (U+2212, not a hyphen). An empty cell prints `n/a`, as in the
+  other 1212 tables: the no-em-dash rule has no exception, not even for a glyph.
 - **Issuer and Regulatory status ship as bracketed placeholders.** Fill them
   before any statement is sent and have counsel confirm the wording for the
   jurisdiction.
@@ -148,7 +147,8 @@ Content gap 34.
 5. The `Fund, same period` line is the strategy return, and any gap to the
    client return is explained by the commentary or by a dated movement.
 6. Fees shown equal the fee lines in the movements table.
-7. No placeholder left unfilled, no lorem text, no em dash in prose.
+7. No placeholder left unfilled, no lorem text, no em dash or en dash anywhere
+   (an empty cell is `n/a`).
 8. `check_pdf.py` passes, and one statement has been opened in a real viewer.
 
 ## References

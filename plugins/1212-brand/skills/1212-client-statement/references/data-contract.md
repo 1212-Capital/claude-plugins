@@ -9,7 +9,7 @@ your file falls back to the defaults.
 
 | Key | Type | Notes |
 |---|---|---|
-| `period` | string | `"1 – 31 July 2026"`. Shown on the cover. <!-- check-dashes:allow (the statement period format, as designed) --> |
+| `period` | string | `"1 to 31 July 2026"`. Shown on the cover. |
 | `as_of` | string | `"31 Jul 2026"`. Upper-cased into the running head. |
 | `reference` | string | `"CS-2026-07"`. The account number is appended automatically. |
 | `client.name` | string | Appears as the cover headline and in the running head. |
@@ -19,7 +19,7 @@ your file falls back to the defaults.
 | `client.manager` | string | Name, role |
 | `headline` | 4 × `{label, value}` | Portfolio value, net contributions, gain/loss, return. |
 | `performance` | list of `[label, value]` | Five rows, the last being `Fund, same period`. |
-| `positions` | list of `{strategy, units, nav, value, weight}` | Cash carries `—` for units and NAV. <!-- check-dashes:allow (the rule shows the character) --> |
+| `positions` | list of `{strategy, units, nav, value, weight}` | Cash carries `n/a` for units and NAV. |
 | `movements` | list of `{date, type, strategy, amount}` | Grows freely. |
 | `fees` | list of `{item, basis, amount}` | Last row is the total, with an empty basis. |
 | `commentary.title` | string | One sentence, Lora. |
@@ -39,7 +39,7 @@ your file falls back to the defaults.
 
 ```json
 {
-  "common": { "period": "1 \u2013 31 July 2026", "as_of": "31 Jul 2026", "reference": "CS-2026-07" },
+  "common": { "period": "1 to 31 July 2026", "as_of": "31 Jul 2026", "reference": "CS-2026-07" },
   "accounts": [ { "client": {...}, "headline": [...], ... }, { ... } ]
 }
 ```
@@ -55,7 +55,7 @@ Output files are named `<reference>-<account>.html` / `.pdf`.
 - Thousands separated with a comma, no currency symbol inside the tables. The
   currency is stated once, on the cover and in the Account block.
 - Gains and subscriptions carry `+`. Redemptions and fees carry `−` (U+2212).
-- An empty cell is `—`. <!-- check-dashes:allow (the rule shows the character) -->
+- An empty cell is `n/a`.
 - Percentages carry two decimals.
 - Dates: `DD/MM/YYYY` in tables, `DD MMM YYYY` in the running head, and a
   spelled range on the cover.
