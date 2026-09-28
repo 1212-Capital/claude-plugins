@@ -1,4 +1,4 @@
-# 1212 Capital — brand plugin
+# 1212 Capital brand plugin
 
 Everything needed to produce an on-brand 1212 Capital artefact without opening
 the Pencil file: the design tokens, the voice, the three A4 document templates
@@ -54,11 +54,11 @@ assets/
 
 ## Two production routes
 
-**Pencil** — highest fidelity, stays editable, needs the app open on
+**Pencil**: highest fidelity, stays editable, needs the app open on
 `1212.pen`. Component IDs and the build recipe are in the brand kit's
 `references/pencil.md`.
 
-**Self-contained HTML → PDF** — works anywhere. Requires Python with
+**Self-contained HTML → PDF**: works anywhere. Requires Python with
 Playwright and a Chromium build; no network, since the fonts and images ship
 with the plugin.
 
@@ -139,7 +139,7 @@ Inner pages carry no landscape. The cover keeps it.
 
 ## Source
 
-`1212.pen` — frames *Brand System*, *Brand Kit*, *Assets*, *Fact Sheet ·
+`1212.pen`, frames *Brand System*, *Brand Kit*, *Assets*, *Fact Sheet ·
 Monthly*, *Newsletter · Monthly*, *Internal Document · Template*, including the
 three long guide notes attached to the document templates. When the .pen and
 this plugin disagree, the .pen wins; update the plugin and re-run the diff.
