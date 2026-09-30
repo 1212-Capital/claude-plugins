@@ -10,10 +10,10 @@ description: >
   client statement skills.
 metadata:
   version: "1.0.0"
-  source: "1212.pen — Brand System, Brand Kit, Assets"
+  source: "1212.pen: Brand System, Brand Kit, Assets"
 ---
 
-# 1212 Capital — brand kit
+# 1212 Capital brand kit
 
 The single source of truth is `1212.pen` (Pencil), frames *Brand System*,
 *Brand Kit* and *Assets*. Everything below is transcribed from it. Treat these
@@ -147,9 +147,9 @@ files live in the brand kit under `Logos/Square/`.
 18 painterly golden-hour landscapes in three sets, shipped in
 `${CLAUDE_PLUGIN_ROOT}/assets/img/`:
 
-- `matin/opt-01…06.jpg` — Dawn, 06:00
-- `midi/opt-01…06.jpg` — Noon, 12:12
-- `soir/opt-01…06.jpg` — Dusk, 18:00
+- `matin/opt-01…06.jpg`: Dawn, 06:00
+- `midi/opt-01…06.jpg`: Noon, 12:12
+- `soir/opt-01…06.jpg`: Dusk, 18:00
 
 The light tells the time. Documents use them **on the cover**; the fact sheet
 defaults to `midi/opt-02`, the newsletter to `midi/opt-01`, the internal
@@ -162,12 +162,12 @@ the library.
 
 ## Two ways to produce a 1212 artefact
 
-**A. Pencil** — highest fidelity, stays editable, requires the Pencil app open
+**A. Pencil**: highest fidelity, stays editable, requires the Pencil app open
 on `1212.pen`. Duplicate an existing page set and override text on the
 instances. Never detach an instance. Component IDs and the full build recipe are
 in `references/pencil.md`.
 
-**B. Self-contained HTML → PDF/PNG** — works anywhere, no Pencil needed:
+**B. Self-contained HTML → PDF/PNG**: works anywhere, no Pencil needed:
 
 ```bash
 S=${CLAUDE_PLUGIN_ROOT}/assets/scripts
@@ -248,9 +248,9 @@ missing dependency, say so plainly rather than working around it.
 
 ## References
 
-- `references/tokens.md` — every token, component spec and CSS class
-- `references/voice.md` — positioning, tone, approved copy lines
-- `references/social.md` — the four social canvases, exact geometry
-- `references/pencil.md` — Pencil component IDs and how to build in the .pen (optional route)
-- `../../assets/img/catalogue.json` — the 18 landscapes, with scene, figures and per-document rules
-- `../../assets/schemas/funds.json` — the 1212 vaults and the wording each one takes
+- `references/tokens.md`: every token, component spec and CSS class
+- `references/voice.md`: positioning, tone, approved copy lines
+- `references/social.md`: the four social canvases, exact geometry
+- `references/pencil.md`: Pencil component IDs and how to build in the .pen (optional route)
+- `../../assets/img/catalogue.json`: the 18 landscapes, with scene, figures and per-document rules
+- `../../assets/schemas/funds.json`: the 1212 vaults and the wording each one takes

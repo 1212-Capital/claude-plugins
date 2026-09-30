@@ -41,50 +41,50 @@ guessing.
 
 | ID | Name |
 |---|---|
-| `vMXTP` | 1212 · Logo — children `t84J4M` (1212), `s3X54` (CAPITAL) |
-| `bVeDT` | 1212 · Cover Masthead — `XtkcH` kicker, `ga5Rh` headline, `XOv2Z` standfirst |
-| `RPmSh` | 1212 · Stat Card — `u5dN3K` key, `U2ahEe` value |
-| `D7kwbd` | 1212 · Stat Row — cells `WysJW`, `C9z3O`, `wKsMs`, `uft2t` (address as `WysJW/u5dN3K`) |
-| `ctMst` | 1212 · Cell · Head — `X1WAX` |
-| `j6algT` | 1212 · Cell · Text — `PLwSZ` |
-| `itKhJ` | 1212 · Cell · Figure — `u5aet` |
-| `FCzTN` | 1212 · Cell · Figure Accent — `msEZ1` |
-| `ZO91j` | 1212 · Tag — `WZ3fN` |
-| `NJ0jy` | 1212 · Section Label — `UxV6N` |
-| `Z24lwV` | 1212 · Section Heading — `JjtIA` main, `qLWlu` suffix |
-| `k50Fcr` | 1212 · Footnote — `d7i1dj` |
-| `z3jOJy` | FS · Product Title — `M3v8Uu` name, `eo7TO` desc, `BgHJq` pill |
-| `OHU6g` | 1212 · Key Fact Row — `KdVzs` label, `BcIRO` value |
-| `vmCpS` | 1212 · Metric Row — `vV713` label, `LSYU7` value |
-| `a82gF4` | FS · Donut — `ZlEp3`, `nXrTq`, `CVWM0` |
-| `d8Xcfw` | FS · Legend Item — `ph2HT` dot, `v6LaRs` label, `A45ejp` value |
-| `VODO5` | FS · Exposure Row — `e7qI7` dot, `kqlBv` name, `kX8mA` bar, `d2Z1d3` value |
-| `iO6Ol` | FS · Protocol Row — `D6lGw` mark, `u1r8u` name |
+| `vMXTP` | 1212 · Logo: children `t84J4M` (1212), `s3X54` (CAPITAL) |
+| `bVeDT` | 1212 · Cover Masthead: `XtkcH` kicker, `ga5Rh` headline, `XOv2Z` standfirst |
+| `RPmSh` | 1212 · Stat Card: `u5dN3K` key, `U2ahEe` value |
+| `D7kwbd` | 1212 · Stat Row: cells `WysJW`, `C9z3O`, `wKsMs`, `uft2t` (address as `WysJW/u5dN3K`) |
+| `ctMst` | 1212 · Cell · Head: `X1WAX` |
+| `j6algT` | 1212 · Cell · Text: `PLwSZ` |
+| `itKhJ` | 1212 · Cell · Figure: `u5aet` |
+| `FCzTN` | 1212 · Cell · Figure Accent: `msEZ1` |
+| `ZO91j` | 1212 · Tag: `WZ3fN` |
+| `NJ0jy` | 1212 · Section Label: `UxV6N` |
+| `Z24lwV` | 1212 · Section Heading: `JjtIA` main, `qLWlu` suffix |
+| `k50Fcr` | 1212 · Footnote: `d7i1dj` |
+| `z3jOJy` | FS · Product Title: `M3v8Uu` name, `eo7TO` desc, `BgHJq` pill |
+| `OHU6g` | 1212 · Key Fact Row: `KdVzs` label, `BcIRO` value |
+| `vmCpS` | 1212 · Metric Row: `vV713` label, `LSYU7` value |
+| `a82gF4` | FS · Donut: `ZlEp3`, `nXrTq`, `CVWM0` |
+| `d8Xcfw` | FS · Legend Item: `ph2HT` dot, `v6LaRs` label, `A45ejp` value |
+| `VODO5` | FS · Exposure Row: `e7qI7` dot, `kqlBv` name, `kX8mA` bar, `d2Z1d3` value |
+| `iO6Ol` | FS · Protocol Row: `D6lGw` mark, `u1r8u` name |
 | `xLVSj` | FS · Bar Chart |
 | `h6NmQ` | FS · Table |
 | `z7vVS` | FS · Legend Row |
-| `H0tHAR` | FS · Glossary Entry — `uanvK` term, `dAV1B` definition |
-| `s06jr` | 1212 · Disclaimer Paragraph — `q4uXsD` |
-| `R02IjC` | 1212 · Commentary — `P3N2it` title, `Yj0pB` body A, `haL5r` body B |
-| `y6XJpb` | 1212 · Page Header — `SBnn1` meta |
-| `FjFXU` | 1212 · Page Footer — `negCd` meta, `wvgBq` page number |
-| `OXIr2` | NL · Section Label — `BVfrb` |
-| `E5RjY` | NL · Headline — `nqyCe` |
-| `BqtYI` | NL · Body Text — `Q7Fn4o` |
-| `t8z0mA` | NL · Source — `j1UzXg` |
+| `H0tHAR` | FS · Glossary Entry: `uanvK` term, `dAV1B` definition |
+| `s06jr` | 1212 · Disclaimer Paragraph: `q4uXsD` |
+| `R02IjC` | 1212 · Commentary: `P3N2it` title, `Yj0pB` body A, `haL5r` body B |
+| `y6XJpb` | 1212 · Page Header: `SBnn1` meta |
+| `FjFXU` | 1212 · Page Footer: `negCd` meta, `wvgBq` page number |
+| `OXIr2` | NL · Section Label: `BVfrb` |
+| `E5RjY` | NL · Headline: `nqyCe` |
+| `BqtYI` | NL · Body Text: `Q7Fn4o` |
+| `t8z0mA` | NL · Source: `j1UzXg` |
 | `Rg5sa` | NL · Image |
-| `lokaW` | NL · Coverline — `EO4cI` topic, `euN9N` head |
-| `sf5zH` | NL · Brief — `F7Z76` image, `j4OPo` kicker, `nbqtv` headline, `u00rs` body, `EMb7w` source (→ `EMb7w/j1UzXg`) |
-| `EQti4` | NL · Page Header — `RLzb2` meta |
-| `MdUaW` | NL · Page Footer — `TXEBg` pub, `uToIE` source |
-| `RXPRu` | NL · Article Title — `Y5qgDZ` section (→ `Y5qgDZ/BVfrb`), `f4idDU` headline (→ `f4idDU/nqyCe`) |
-| `IkrIZ` | NL · Body Columns — `aJ9k6`, `gJQfP` (→ `aJ9k6/Q7Fn4o`) |
-| `g4gsAC` | NL · Coverline Row — `e1cz4`, `cxVwA`, `g6nl6` |
-| `J6i8l` | DOC · Body — `NijnJ` |
-| `u94L6l` | DOC · Bullet — `dCwZs` term, `a6cjp` text |
-| `oruqj` | DOC · Meta Item — `ADyY3` label, `w8PRQl` value |
-| `RIMnY` | DOC · Page Header — `EbIib` meta |
-| `fYLvd` | DOC · Page Footer — `vFfxn` meta, `inIdi` page number |
+| `lokaW` | NL · Coverline: `EO4cI` topic, `euN9N` head |
+| `sf5zH` | NL · Brief: `F7Z76` image, `j4OPo` kicker, `nbqtv` headline, `u00rs` body, `EMb7w` source (→ `EMb7w/j1UzXg`) |
+| `EQti4` | NL · Page Header: `RLzb2` meta |
+| `MdUaW` | NL · Page Footer: `TXEBg` pub, `uToIE` source |
+| `RXPRu` | NL · Article Title: `Y5qgDZ` section (→ `Y5qgDZ/BVfrb`), `f4idDU` headline (→ `f4idDU/nqyCe`) |
+| `IkrIZ` | NL · Body Columns: `aJ9k6`, `gJQfP` (→ `aJ9k6/Q7Fn4o`) |
+| `g4gsAC` | NL · Coverline Row: `e1cz4`, `cxVwA`, `g6nl6` |
+| `J6i8l` | DOC · Body: `NijnJ` |
+| `u94L6l` | DOC · Bullet: `dCwZs` term, `a6cjp` text |
+| `oruqj` | DOC · Meta Item: `ADyY3` label, `w8PRQl` value |
+| `RIMnY` | DOC · Page Header: `EbIib` meta |
+| `fYLvd` | DOC · Page Footer: `vFfxn` meta, `inIdi` page number |
 | `ACMOa` | DOC · Table |
 | `pEjnp` | Auth · Brand Panel (app screens) |
 
@@ -92,24 +92,24 @@ guessing.
 
 | ID | Frame |
 |---|---|
-| `j6tjdE` | Fact Sheet · Monthly (wrapper) — `mLTsz` Pages, `mAkad` Blocks Library, `H1Rpi` guide note |
+| `j6tjdE` | Fact Sheet · Monthly (wrapper): `mLTsz` Pages, `mAkad` Blocks Library, `H1Rpi` guide note |
 | `X4TnaF` | Fact Sheet · Cover |
-| `OM2R4` | Page 1 — Overview & Performance |
-| `oHw6r` | Page 2 — Allocation & Monthly Returns |
-| `H6RJjr` | Page 3 — Glossary & Risk Considerations |
-| `Rw8d0` | Page 4 — Important Information |
-| `DV2oS` | Newsletter · Monthly — `Ggi9M` Pages, `O93dZ` library, `uwdqK` guide |
+| `OM2R4` | Page 1 — Overview & Performance <!-- check-dashes:allow (the frame name in 1212.pen, matched by name) --> |
+| `oHw6r` | Page 2 — Allocation & Monthly Returns <!-- check-dashes:allow (the frame name in 1212.pen, matched by name) --> |
+| `H6RJjr` | Page 3 — Glossary & Risk Considerations <!-- check-dashes:allow (the frame name in 1212.pen, matched by name) --> |
+| `Rw8d0` | Page 4 — Important Information <!-- check-dashes:allow (the frame name in 1212.pen, matched by name) --> |
+| `DV2oS` | Newsletter · Monthly: `Ggi9M` Pages, `O93dZ` library, `uwdqK` guide |
 | `rPmKq` | Newsletter · Cover |
 | `GlrbA` / `ozOoc` / `Y6tqgC` | Section pages 02 / 03 / 04 |
-| `uJDkW` | Client Statement · Monthly — `U6CYQ` Pages, `NDrFF` library, `kHTtK` guide |
+| `uJDkW` | Client Statement · Monthly: `U6CYQ` Pages, `NDrFF` library, `kHTtK` guide |
 | `VOEgM` | Statement · Cover |
-| `mPWg2` | Statement · Page 1 — Portfolio Summary |
-| `UXzG1` | Statement · Page 2 — Activity & Fees |
-| `i090HC` | Statement · Page 3 — Important Information |
-| `QGi77` | Internal Document · Template — `lgWp3` Pages, `i7NDt` library, `RI7iM` guide |
+| `mPWg2` | Statement · Page 1 — Portfolio Summary <!-- check-dashes:allow (the frame name in 1212.pen, matched by name) --> |
+| `UXzG1` | Statement · Page 2 — Activity & Fees <!-- check-dashes:allow (the frame name in 1212.pen, matched by name) --> |
+| `i090HC` | Statement · Page 3 — Important Information <!-- check-dashes:allow (the frame name in 1212.pen, matched by name) --> |
+| `QGi77` | Internal Document · Template: `lgWp3` Pages, `i7NDt` library, `RI7iM` guide |
 | `OEVK1` | Doc · Cover |
-| `hsYrQ` | Doc · Page — Analysis |
-| `DLADJ` | Doc · Page — Decision & Appendix |
+| `hsYrQ` | Doc · Page — Analysis <!-- check-dashes:allow (the frame name in 1212.pen, matched by name) --> |
+| `DLADJ` | Doc · Page — Decision & Appendix <!-- check-dashes:allow (the frame name in 1212.pen, matched by name) --> |
 | `nN6Nd` | Brand System · `YJU4f` Brand Kit · `Lg6zU` Assets · `u69Ren` Landing |
 
 ## What changed in August 2026
@@ -134,7 +134,7 @@ redrawn as `1212` large over `CAPITAL` in spaced capitals, on four grounds
 const pos = FindEmptySpace({width: 4400, height: 1400, nodeId: "j6tjdE", padding: 120})
 setId = Copy("mLTsz", document, {name: "Fact Sheet · July 2026", x: pos.x, y: pos.y, placeholder: true})
 
-// 2. read the copy's children — Copy assigns new ids to every descendant
+// 2. read the copy's children: Copy assigns new ids to every descendant
 pages = Get(setId, {depth: 1}).children.map(c => c.id)
 Print(pages)
 ```

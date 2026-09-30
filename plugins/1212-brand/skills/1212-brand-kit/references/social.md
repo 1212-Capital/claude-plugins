@@ -1,13 +1,13 @@
-# 1212 Capital — social formats
+# 1212 Capital social formats
 
-Four canvases, transcribed from `1212.pen → 1212 Capital — Assets`. All live in
+Four canvases, transcribed from `1212.pen → 1212 Capital — Assets`. All live in <!-- check-dashes:allow (the frame name in 1212.pen, matched by name) -->
 `assets/templates/social.html`; render with
 `python3 assets/scripts/render_png.py social.html outdir`.
 
 Corner radius 24 is a canvas convention for the preview. Export flat if the
 platform crops or applies its own mask.
 
-## Announcement — 16:9, 1920 × 1080
+## Announcement: 16:9, 1920 × 1080
 
 Launches, positioning, news.
 
@@ -20,7 +20,7 @@ Launches, positioning, news.
   headline Lora 96/500 lh 94 paper, width 1440, line break authored by hand;
   subline Inter 23 lh 35 `#E7D8C6`, width 912
 
-## Stat · Light — 16:9, 1920 × 1080
+## Stat · Light: 16:9, 1920 × 1080
 
 Metric callout on light surfaces.
 
@@ -30,7 +30,7 @@ Metric callout on light surfaces.
 - Right: brand image, 840 wide, full bleed
 - The source file uses `accent-blue` for the label. Use `lavender`.
 
-## Split Block · Dusk — 16:9, 1920 × 1080
+## Split Block · Dusk: 16:9, 1920 × 1080
 
 Editorial statement on dark.
 
@@ -42,7 +42,7 @@ Editorial statement on dark.
   headline Lora 102/400 lh 104 `#FBF8EF` width 883 ‖
   body Inter 27 lh 41 `#C8C3D6` width 691
 
-## Stat — 1:1, 1080 × 1080
+## Stat: 1:1, 1080 × 1080
 
 Single metric, square placements.
 

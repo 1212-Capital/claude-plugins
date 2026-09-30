@@ -92,7 +92,7 @@ def build(d):
     <div class="cover__rule"></div>
     <div class="coverstrip coverstrip--sm">
       <div class="coverstrip__col"><div class="coverstrip__label">ADDRESS</div><div class="coverstrip__value">{e(addr)}</div></div>
-      <div class="coverstrip__col"><div class="coverstrip__label">PERIOD</div><div class="coverstrip__value">{e(d["period"])}</div></div>
+      <div class="coverstrip__col coverstrip__col--period"><div class="coverstrip__label">PERIOD</div><div class="coverstrip__value">{e(d["period"])}</div></div>
       <div class="coverstrip__col"><div class="coverstrip__label">CURRENCY</div><div class="coverstrip__value">{e(d.get("currency", "USD"))}</div></div>
       <div class="coverstrip__col"><div class="coverstrip__label">FUND</div><div class="coverstrip__value">{e(fund)}</div></div>
     </div>

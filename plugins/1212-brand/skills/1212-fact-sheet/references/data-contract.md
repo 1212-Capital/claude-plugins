@@ -1,4 +1,4 @@
-# Fact sheet — JSON data contract
+# Fact sheet JSON data contract
 
 Input for `assets/scripts/build_factsheet.py`. A working example ships at
 `assets/schemas/factsheet.example.json`; defaults for the static pages at
@@ -61,11 +61,11 @@ back to the defaults.
 
 Named in the shipped source lines, so keep them accurate:
 
-- **Lagoon** — 1212.Stable NAV, performance, allocation
-- **on-chain positions** — stablecoin and protocol exposure
-- **iShares** — comparator ETF SEC yields
-- **Kraken** — USDC reference rate
-- **coinglass** — BTC monthly returns and correlation
+- **Lagoon**: 1212.Stable NAV, performance, allocation
+- **on-chain positions**: stablecoin and protocol exposure
+- **iShares**: comparator ETF SEC yields
+- **Kraken**: USDC reference rate
+- **coinglass**: BTC monthly returns and correlation
 
 NAV is struck weekly; monthly returns derive from the last published NAV of
 each month. If a figure cannot be traced to one of these, do not publish it.

@@ -1,4 +1,4 @@
-# 1212 Capital — voice and copy
+# 1212 Capital voice and copy
 
 ## Positioning
 

@@ -1,4 +1,4 @@
-# 1212 Capital — tokens and component specs
+# 1212 Capital tokens and component specs
 
 Every value is transcribed from `1212.pen`. The CSS class named on each row is
 implemented in `assets/css/1212.css` and renders pixel-identically to Pencil.
@@ -7,7 +7,7 @@ implemented in `assets/css/1212.css` and renders pixel-identically to Pencil.
 
 | | |
 |---|---|
-| Page | 794 × 1123 px — true A4 at 96 dpi |
+| Page | 794 × 1123 px, true A4 at 96 dpi |
 | Margins | 56 px (14.8 mm) |
 | Measure | 682 px |
 | Content stack max height | 988 px (fact sheet, internal doc) · 987 px (newsletter) |
@@ -29,7 +29,7 @@ compute `round(size × ratio)` with **round-half-up** (11 × 1.5 = 16.5 → 17).
 | Pencil component | CSS | Spec |
 |---|---|---|
 | `1212 · Logo` | `.logo` | row, gap 7, align end. `1212` Lora 19/600 ink · `CAPITAL` Lora 19/600 lavender, ls 1. lh 1. Both words semibold since Aug 2026 |
-| — on a cover | `.logo.logo--cover` | size 20, `1212` ivory, `CAPITAL` #FBF8EFB3 |
+| `1212 · Logo`, on a cover | `.logo.logo--cover` | size 20, `1212` ivory, `CAPITAL` #FBF8EFB3 |
 | `1212 · Cover Masthead` | `.masthead` | column, gap 14. Kicker mono 11 ls 2 lilac lh 14 · Headline Lora 56/500 lh 59 ivory · Standfirst Inter 14 lh 22 #FBF8EFCC, width 540 |
 | `1212 · Section Label` | `.tag` | lilac pill, r999, padding 6/14, Inter 11/500 lh 14, tint-lilac |
 | `1212 · Tag` | `.pill` | periwinkle, r999, 1px lavender inner stroke, padding 5/12, Inter 11/500 lh 14, tint-periwinkle |
@@ -69,7 +69,7 @@ percentage stops. Disable unused segments, do not delete them.
 
 **Exposure bar maths.** `bar width = pct ÷ max_pct × 420`. The value cell is
 `flex:1 1 auto; text-align:right` so it holds a clean column. All bars are
-lavender — only the dot carries the ramp colour.
+lavender; only the dot carries the ramp colour.
 
 ## Newsletter blocks
 
@@ -99,7 +99,7 @@ lavender — only the dot carries the ramp colour.
 
 ## Cover figure strip (fact sheet)
 
-`.coverstrip` — 4 columns gap 28, column gap 7. Label mono 8.5 ls 1.1 lh 11
+`.coverstrip`: 4 columns gap 28, column gap 7. Label mono 8.5 ls 1.1 lh 11
 `#FBF8EF99`, Value mono 20/700 lh 22 ivory.
 
 ## Known inconsistency in the source file

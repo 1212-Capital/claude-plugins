@@ -9,10 +9,10 @@ description: >
   self-contained HTML to PDF build.
 metadata:
   version: "1.0.0"
-  source: "1212.pen — Fact Sheet · Monthly"
+  source: "1212.pen: Fact Sheet · Monthly"
 ---
 
-# 1212.Stable — monthly fact sheet
+# 1212.Stable monthly fact sheet
 
 Cover + 4 numbered pages, 794 × 1123 (true A4 at 96 dpi), 56 px margins, 682 px
 measure. Read `1212-brand-kit` first if the palette and type rules are not
@@ -106,20 +106,20 @@ scrim. Logo top left, `FACT SHEET · MMM YYYY` top right. Then kicker, product
 name in Lora 56, standfirst, a hairline, four headline figures, and the
 confidentiality notice.
 
-**Page 1 — Overview & Performance.** Two aligned rows: Fund Description (408) ‖
+**Page 1: Overview & Performance.** Two aligned rows: Fund Description (408) ‖
 Key Facts (246), then Net Performance (408) ‖ Terms (246). The rows exist so the
 second pair starts on the same baseline; do not collapse them into two vertical
 columns. Then Current Yield Environment (table, 1212.Stable on the lilac row
 with the accent figure) and Risk Metrics (dusk stat band). Content gap 40.
 
-**Page 2 — Allocation & Monthly Returns.** Strategy Allocation (donut 210 +
+**Page 2: Allocation & Monthly Returns.** Strategy Allocation (donut 210 +
 legend + note), Stablecoins Exposure (bars), Protocols Exposure (two columns),
 source footnote, Monthly Returns vs BTC. Content gap 34.
 
-**Page 3 — Glossary & Risk Considerations.** Investor education, static. 10
+**Page 3: Glossary & Risk Considerations.** Investor education, static. 10
 glossary entries and 7 risk considerations, two columns each.
 
-**Page 4 — Important Information.** 7 legal paragraphs then Issuer & Contact.
+**Page 4: Important Information.** 7 legal paragraphs then Issuer & Contact.
 No panel, no tinted box. Content gap 40.
 
 ## Rules that are specific to this document
@@ -164,6 +164,6 @@ section. Pages 3 and 4 take no data blocks. Never shrink type.
 
 ## References
 
-- `references/data-contract.md` — the JSON schema, field by field
-- `1212-brand-kit/references/tokens.md` — CSS classes and component specs
-- `1212-brand-kit/references/pencil.md` — the Pencil build
+- `references/data-contract.md`: the JSON schema, field by field
+- `1212-brand-kit/references/tokens.md`: CSS classes and component specs
+- `1212-brand-kit/references/pencil.md`: the Pencil build
