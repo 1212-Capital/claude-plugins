@@ -57,8 +57,8 @@ Output files are named `<reference>-<account>.html` / `.pdf`.
 - Gains and subscriptions carry `+`. Redemptions and fees carry `−` (U+2212).
 - An empty cell is `n/a`.
 - Percentages carry two decimals.
-- Dates: `DD/MM/YYYY` in tables, `DD MMM YYYY` in the running head, and a
-  spelled range on the cover.
+- Dates: `DD/MM/YYYY` in tables, `D MMMM YYYY` in the running head (the
+  `as_of`, upper-cased), and a spelled range on the cover.
 
 ## Checks the builder does not run
 
