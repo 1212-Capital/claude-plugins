@@ -236,8 +236,8 @@ body{margin:0;background:#8F8A80;font-family:var(--font-sans);-webkit-font-smoot
 
 /* --- Flow ---------------------------------------------------------------- */
 /* The parts after a cover as the builders write them, before paginate.js lays them into .page sections. */
-.flow{width:var(--page-w);margin:0 auto}
-.flow__parts{display:flex;flex-direction:column}
+.flow{width:var(--page-w);margin:0 auto;padding:var(--margin);background:var(--ivory)}
+.flow__parts{display:flex;flex-direction:column;gap:30px}
 
 /* --- Print -------------------------------------------------------------- */
 @page{size:794px 1123px;margin:0}
