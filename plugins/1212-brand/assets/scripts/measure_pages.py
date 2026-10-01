@@ -29,6 +29,7 @@ async def run(src):
         pg = await b.new_page(viewport={"width": 794, "height": 1123})
         await pg.goto(pathlib.Path(src).resolve().as_uri(), wait_until="networkidle")
         await pg.evaluate("document.fonts.ready")
+        await pg.wait_for_function("!document.querySelector('section.flow') || document.documentElement.dataset.paginated === 'true'")
         await pg.wait_for_timeout(400)
         rows = await pg.evaluate(JS)
         await b.close()

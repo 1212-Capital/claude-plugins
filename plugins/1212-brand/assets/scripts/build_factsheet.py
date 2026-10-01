@@ -65,6 +65,22 @@ def foot(n, total, version=""):
   </div>'''
 
 
+def flow(content_class, head_html, foot_html, parts):
+    """The parts after the cover, for paginate.js: the running head and foot as templates, each part with its rule."""
+    items = "\n".join(f'  <div class="flow__part" data-flow="{kind}">\n{html}\n  </div>' for kind, html in parts)
+    return f'''<section class="flow" data-content="{content_class}">
+<template class="flow__head">
+{head_html}
+</template>
+<template class="flow__foot">
+{foot_html}
+</template>
+<div class="flow__parts">
+{items}
+</div>
+</section>'''
+
+
 def kvs(pairs, cls="kv"):
     return "\n".join(
         f'          <div class="{cls}"><span class="kv__label">{e(a)}</span>'
@@ -178,7 +194,6 @@ def build(d):
     ver = f'  ·  {d["version"]}' if d.get("version") else ""
     meta = f'{d["product"]["name"].upper()} · FACT SHEET · AS OF {d["as_of"].upper()}'
     p = d["product"]
-    total = 4
 
     cover = f'''<section class="cover" style="background-image:url('{d.get("cover_image_base", "../img/")}{d.get("cover_image", "midi/opt-02.jpg")}')">
   <div class="cover__scrim cover__scrim--fs"></div>
@@ -202,11 +217,16 @@ def build(d):
   </div>
 </section>'''
 
-    page1 = f'''<section class="page">
-  <div class="page__content">
-{head(meta)}
-
-    <div class="stack" style="gap:18px">
+    # One flow after the cover (Noah, 1 Oct 2026): the parts follow one another and paginate.js turns a page only
+    # when the next part does not fit. Every part is kept whole but the important information, which breaks
+    # between paragraphs, its title keeping the first one.
+    a = d["allocation"]
+    half = (len(d["issuer"]) + 1) // 2
+    issuer_cols = "\n".join(
+        f'      <div style="gap:9px">\n' + kvs(col, "kv kv--sm") + '\n      </div>'
+        for col in (d["issuer"][:half], d["issuer"][half:]))
+    parts = [
+        ("keep", f'''    <div class="stack" style="gap:18px">
       <div class="row" style="gap:28px">
         <div class="stack" style="width:408px;flex:0 0 408px;gap:12px">
           <div class="tag">FUND DESCRIPTION</div>
@@ -227,120 +247,81 @@ def build(d):
 {kvs(d["terms"])}
         </div>
       </div>
-    </div>
-
-    <div class="section">
+    </div>'''),
+        ("keep", f'''    <div class="section">
       <div class="tag">{e(d.get("comparison_label", "CURRENT YIELD ENVIRONMENT"))}</div>
 {table(d["yield_environment"]["header"], d["yield_environment"]["rows"])}
       <div class="footnote">{e(d["yield_environment"]["source"])}</div>
-    </div>
-
-    <div class="section">
+    </div>'''),
+        ("keep", '''    <div class="section">
       <div class="tag">RISK METRICS</div>
       <div class="statrow">
 ''' + "\n".join(
-        f'        <div class="stat"><div class="stat__key">{e(k)}</div><div class="stat__value">{e(v)}</div></div>'
-        for k, v in d["risk_metrics"]["items"]) + f'''
+            f'        <div class="stat"><div class="stat__key">{e(k)}</div><div class="stat__value">{e(v)}</div></div>'
+            for k, v in d["risk_metrics"]["items"]) + f'''
       </div>
       <div class="footnote">{e(d["risk_metrics"]["source"])}</div>
-    </div>
-
-  </div>
-{foot(1, total, ver)}
-</section>'''
-
-    a = d["allocation"]
-    page2 = f'''<section class="page">
-  <div class="page__content page__content--tight">
-{head(meta)}
-
-    <div class="tag">{e(a.get("tag", "CURRENT ALLOCATION"))}</div>
-
-    <div class="section">
-      <div class="heading"><span class="heading__main">{e(a.get("heading", "Strategy Allocation"))}</span><span class="heading__suffix">{e(a.get("suffix", "% of NAV"))}</span></div>
-      <div class="row" style="gap:40px;align-items:center">
-        {donut(a["segments"]) if len(a["segments"]) > 1 else ""}
-        <div class="stack grow" style="gap:18px">
-          <div class="stack" style="gap:10px">
+    </div>'''),
+        ("keep", f'''    <div class="stack" style="gap:34px">
+      <div class="tag">{e(a.get("tag", "CURRENT ALLOCATION"))}</div>
+      <div class="section">
+        <div class="heading"><span class="heading__main">{e(a.get("heading", "Strategy Allocation"))}</span><span class="heading__suffix">{e(a.get("suffix", "% of NAV"))}</span></div>
+        <div class="row" style="gap:40px;align-items:center">
+          {donut(a["segments"]) if len(a["segments"]) > 1 else ""}
+          <div class="stack grow" style="gap:18px">
+            <div class="stack" style="gap:10px">
 {legend(a["segments"])}
+            </div>
+            <div class="note">{e(a["note"])}</div>
           </div>
-          <div class="note">{e(a["note"])}</div>
         </div>
       </div>
-    </div>
-
-    <div class="section">
+    </div>'''),
+        ("keep", f'''    <div class="section">
       <div class="heading"><span class="heading__main">Stablecoins Exposure</span><span class="heading__suffix">% of NAV</span></div>
       <div class="stack" style="gap:11px">
 {exposure(d["stablecoins"])}
       </div>
-    </div>
-
-    <div class="section">
-      <div class="heading"><span class="heading__main">Protocols Exposure</span></div>
-      <div class="stack" style="gap:11px">
+    </div>'''),
+        ("keep", f'''    <div class="stack" style="gap:34px">
+      <div class="section">
+        <div class="heading"><span class="heading__main">Protocols Exposure</span></div>
+        <div class="stack" style="gap:11px">
 {protocols(d["protocols"])}
+        </div>
       </div>
-    </div>
-
-    <div class="footnote">{e(d["allocation_source"])}</div>
-
-    <div class="section">
+      <div class="footnote">{e(d["allocation_source"])}</div>
+    </div>'''),
+        ("keep", f'''    <div class="section">
       <div class="tag">MONTHLY RETURNS VS BTC</div>
 {returns_table(d["monthly_returns"])}
       <div class="footnote">{e(d["monthly_returns"]["source"])}</div>
-    </div>
-
-  </div>
-{foot(2, total, ver)}
-</section>'''
-
-    page3 = f'''<section class="page">
-  <div class="page__content page__content--tight">
-{head(meta)}
-
-    <div class="section">
+    </div>'''),
+        ("keep", f'''    <div class="section">
       <div class="tag">GLOSSARY</div>
       <div class="columns">
 {entries(sorted(d["glossary"], key=lambda x: x["term"].lower()), 19)}
       </div>
-    </div>
-
-    <div class="section">
+    </div>'''),
+        ("keep", f'''    <div class="section">
       <div class="tag">RISK CONSIDERATIONS</div>
       <div class="columns">
 {entries(sorted(d["risks"], key=lambda x: x["term"].lower()), 15)}
       </div>
-    </div>
-
-  </div>
-{foot(3, total, ver)}
-</section>'''
-
-    half = (len(d["issuer"]) + 1) // 2
-    issuer_cols = "\n".join(
-        f'      <div style="gap:9px">\n' + kvs(col, "kv kv--sm") + '\n      </div>'
-        for col in (d["issuer"][:half], d["issuer"][half:]))
-
-    page4 = f'''<section class="page">
-  <div class="page__content">
-{head(meta)}
-
-    <div class="tag">IMPORTANT INFORMATION</div>
-
-    <div class="stack" style="gap:11px">
-''' + "\n".join(f'      <div class="disclaimer">{e(t)}</div>' for t in d["legal"]) + f'''
-    </div>
-
-    <div class="tag">ISSUER &amp; CONTACT</div>
-
-    <div class="columns">
+    </div>'''),
+        # The title, then the paragraphs 11 px apart, the title 34 px above the first as the flow's gap.
+        ("blocks", '''    <div class="section" style="gap:11px">
+      <div class="tag" style="margin-bottom:23px">IMPORTANT INFORMATION</div>
+''' + "\n".join(f'      <div class="disclaimer">{e(t)}</div>' for t in d["legal"]) + '''
+    </div>'''),
+        ("keep", f'''    <div class="stack" style="gap:34px">
+      <div class="tag">ISSUER &amp; CONTACT</div>
+      <div class="columns">
 {issuer_cols}
-    </div>
-
-  </div>
-{foot(4, total, ver)}
-</section>'''
+      </div>
+    </div>'''),
+    ]
+    body = flow("page__content page__content--tight", head(meta), foot("", "", ver), parts)
 
     return f'''<!doctype html>
 <html lang="en">
@@ -351,10 +332,8 @@ def build(d):
 </head>
 <body>
 {cover}
-{page1}
-{page2}
-{page3}
-{page4}
+{body}
+<script src="{d.get("js", str(ASSETS / "scripts" / "paginate.js"))}"></script>
 </body>
 </html>
 '''

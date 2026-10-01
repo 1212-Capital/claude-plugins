@@ -38,6 +38,22 @@ def foot(n, total=2, ref=""):
   </div>'''
 
 
+def flow(content_class, head_html, foot_html, parts):
+    """The parts after the cover, for paginate.js: the running head and foot as templates, each part with its rule."""
+    items = "\n".join(f'  <div class="flow__part" data-flow="{kind}">\n{html}\n  </div>' for kind, html in parts)
+    return f'''<section class="flow" data-content="{content_class}">
+<template class="flow__head">
+{head_html}
+</template>
+<template class="flow__foot">
+{foot_html}
+</template>
+<div class="flow__parts">
+{items}
+</div>
+</section>'''
+
+
 def kvs(pairs, cls="kv"):
     return "\n".join(f'        <div class="{cls}"><span class="kv__label">{e(a)}</span>'
                      f'<span class="kv__value">{e(b)}</span></div>' for a, b in pairs)
@@ -105,20 +121,24 @@ def build(d):
                  (p["value"], 120, True), (p.get("currency", cur), 60, True),
                  (p["weight"], 80, True)] for p in d["positions"]]
 
-    page1 = f'''<section class="page">
-  <div class="page__content page__content--stmt">
-{head(meta)}
+    # inception to date, and no fee lines: fees are explained in Important
+    # Information now, and every figure on this statement is already net of them.
+    movements = [m for m in d.get("movements_since_inception", d.get("movements", []))
+                 if m.get("type", "").lower() != "fee"]
+    mv_rows = [[(m["date"], 110, False), (m["type"], 190, False),
+                (m["amount"], 150, True), (m.get("currency", cur), 70, True)] for m in movements]
 
-    <div class="section">
+    # One flow after the cover (Noah, 1 Oct 2026): the parts follow one another and paginate.js turns a page only
+    # when it is full. A "keep" part is never cut; a "table" part breaks between rows, its header repeated; a
+    # "blocks" part breaks between paragraphs; each title keeps its first row or paragraph.
+    parts = [("keep", f'''    <div class="section">
       <div class="tag">PORTFOLIO SUMMARY</div>
       <div class="statrow">
 ''' + "\n".join(f'        <div class="stat"><div class="stat__key">{e(k)}</div>'
                 f'<div class="stat__value">{e(v)}</div></div>' for k, v in [
-                    (h["label"], h["value"]) if isinstance(h, dict) else h for h in d["headline"]]) + f'''
+                    (h["label"], h["value"]) if isinstance(h, dict) else h for h in d["headline"]]) + '''
       </div>
-    </div>
-
-    <div class="cols327">
+    </div>'''), ("keep", f'''    <div class="cols327">
       <div style="gap:12px">
         <div class="tag">ACCOUNT</div>
 {kvs([("Address", addr), ("Fund", fund),
@@ -128,43 +148,19 @@ def build(d):
         <div class="tag">YOUR PERFORMANCE</div>
 {kvs(d["performance"], "kv kv--metric")}
       </div>
-    </div>
-
-    <div class="section">
+    </div>'''), ("table", f'''    <div class="section">
       <div class="tag">POSITIONS</div>
 {table([("Strategy", None, False), ("Units", 100, True), ("NAV", 100, True), ("Value", 120, True), ("Ccy", 60, True), ("Weight", 80, True)], pos_rows)}
       <div class="footnote">{e(d["positions_note"])}</div>
-    </div>
-
-  </div>
-{foot(1, 2, ref)}
-</section>'''
-
-    # inception to date, and no fee lines: fees are explained in Important
-    # Information now, and every figure on this statement is already net of them.
-    movements = [m for m in d.get("movements_since_inception", d.get("movements", []))
-                 if m.get("type", "").lower() != "fee"]
-    mv_rows = [[(m["date"], 110, False), (m["type"], 190, False),
-                (m["amount"], 150, True), (m.get("currency", cur), 70, True)] for m in movements]
-
-    page2 = f'''<section class="page">
-  <div class="page__content page__content--stmt">
-{head(meta)}
-
-    <div class="section">
+    </div>'''), ("table", f'''    <div class="section">
       <div class="tag">MOVEMENTS SINCE INCEPTION</div>
 {table([("Date", 110, False), ("Type", 190, False), ("Amount", 150, True), ("Ccy", 70, True)], mv_rows)}
       <div class="footnote">{e(d["movements_note"])}</div>
-    </div>
-
-    <div class="section">
+    </div>'''), ("blocks", '''    <div class="section">
       <div class="tag">IMPORTANT INFORMATION</div>
-''' + "\n".join(f'      <div class="disclaimer disclaimer--soft">{e(x)}</div>' for x in d["legal"]) + f'''
-    </div>
-
-  </div>
-{foot(2, 2, ref)}
-</section>'''
+''' + "\n".join(f'      <div class="disclaimer disclaimer--soft">{e(x)}</div>' for x in d["legal"]) + '''
+    </div>''')]
+    body = flow("page__content page__content--stmt", head(meta), foot("", "", ref), parts)
 
     return f'''<!doctype html>
 <html lang="en">
@@ -175,8 +171,8 @@ def build(d):
 </head>
 <body>
 {cover}
-{page1}
-{page2}
+{body}
+<script src="{d.get("js", str(ASSETS / "scripts" / "paginate.js"))}"></script>
 </body>
 </html>
 '''

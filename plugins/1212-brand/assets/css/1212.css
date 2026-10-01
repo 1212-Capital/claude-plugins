@@ -234,6 +234,11 @@ body{margin:0;background:#8F8A80;font-family:var(--font-sans);-webkit-font-smoot
 .metaitem__label{font-family:var(--font-sans);font-size:9.5px;font-weight:700;line-height:13px;color:var(--ink)}
 .metaitem__value{font-family:var(--font-sans);font-size:9.5px;line-height:13px;color:var(--ink-soft)}
 
+/* --- Flow ---------------------------------------------------------------- */
+/* The parts after a cover as the builders write them, before paginate.js lays them into .page sections. */
+.flow{width:var(--page-w);margin:0 auto;padding:var(--margin);background:var(--ivory)}
+.flow__parts{display:flex;flex-direction:column;gap:30px}
+
 /* --- Print -------------------------------------------------------------- */
 @page{size:794px 1123px;margin:0}
 @media print{
