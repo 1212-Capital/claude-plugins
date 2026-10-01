@@ -50,6 +50,7 @@ assets/
     ├── build_factsheet.py    JSON -> fact sheet HTML (+ PDF)
     ├── build_statement.py    JSON -> client statement, single or batch
     ├── measure_pages.py      how full each Content stack is, before exporting
+    ├── paginate.js           lays a statement's or a fact sheet's flow into pages, in the browser
     ├── render_pdf.py         HTML -> A4 PDF (and per-page PNGs)
     ├── check_pdf.py          a PDF's JPEGs declared with the right colour transform (no magenta covers)
     └── render_png.py         social HTML -> PNG per canvas
@@ -132,6 +133,15 @@ Three things differ from CSS because Pencil expresses them differently, and the
 Inner pages carry no landscape. The cover keeps it.
 
 ## Changelog
+
+- **1.5.0** (October 2026). The client statement and the fact sheet flow
+  continuously after the cover (Noah): the parts follow one another and a page
+  turns only when it is full, instead of a page per part. The builders write the
+  parts once in a `section.flow`; `paginate.js`, loaded by the document, lays
+  them into `.page` sections once the fonts are ready, and `render_pdf.py` and
+  `measure_pages.py` wait for it. A title never stays alone at the foot of a page,
+  a table row is never cut and a carried-over table repeats its header, a short
+  block is never cut. The same rules as the 1212 app's own PDFs.
 
 - **1.4.3** (September 2026). No em dash or en dash left in the skills, their
   references, the templates and the README. The client statement follows the

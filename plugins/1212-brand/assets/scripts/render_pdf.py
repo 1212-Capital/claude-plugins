@@ -4,7 +4,8 @@
     python3 render_pdf.py input.html [output.pdf]
     python3 render_pdf.py input.html --png outdir     # one PNG per page, for review
 
-Every .page / .cover element becomes exactly one PDF page. Fonts and images are
+Every .page / .cover element becomes exactly one PDF page; a flowing document
+(statement, fact sheet) is laid into .page sections by paginate.js first, and this waits for it. Fonts and images are
 loaded from the plugin's assets/ directory, so the HTML must reference them with
 the relative paths the templates already use.
 
@@ -84,6 +85,8 @@ async def run(src, out, png_dir):
                                       device_scale_factor=2)
         await page.goto(url, wait_until="networkidle")
         await page.evaluate("document.fonts.ready")
+        # A flowing document (statement, fact sheet) lays its pages out itself once its fonts are ready.
+        await page.wait_for_function("!document.querySelector('section.flow') || document.documentElement.dataset.paginated === 'true'")
         await page.wait_for_timeout(400)
 
         if png_dir:

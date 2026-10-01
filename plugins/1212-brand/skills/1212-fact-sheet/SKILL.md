@@ -99,6 +99,15 @@ edit the markup directly. The classes are documented in
 python3 ${CLAUDE_PLUGIN_ROOT}/assets/scripts/new_doc.py factsheet variant.html
 ```
 
+## The flow (1.5.0)
+
+The cover stays alone. After it the parts follow one another, and a page turns
+only when the next part does not fit: `build_factsheet.py` writes them once, in
+order, and `paginate.js` lays them into pages in the browser before the PDF is
+printed. Every part is kept whole but Important Information, which breaks between
+paragraphs, its title keeping the first one. The pages below give the order of
+the parts and their content, not where the pages turn.
+
 ## What goes on each page
 
 **Cover.** Full-bleed brand image (default `midi/opt-02.jpg`) under the 5-stop

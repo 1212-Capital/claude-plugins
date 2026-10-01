@@ -14,8 +14,9 @@ metadata:
 
 # 1212 Capital client statement
 
-One statement per client per period. Cover + 3 pages, 794 × 1123 (true A4 at
-96 dpi), 56 px margins, 682 px measure. Read `1212-brand-kit` first if the
+One statement per client per period. A cover, then the parts in one flow over as
+many pages as they need, 794 × 1123 (true A4 at 96 dpi), 56 px margins, 682 px
+measure. Read `1212-brand-kit` first if the
 palette and type rules are not already loaded.
 
 
@@ -123,6 +124,17 @@ then a commentary written for this account. Content gap 30.
 
 **Page 3: Important Information.** Five paragraphs and a contact block.
 Content gap 34.
+
+## The flow (1.5.0)
+
+The cover stays alone. After it the parts follow one another, and a page turns
+only when it is full: `build_statement.py` writes them once, in order, and
+`paginate.js` lays them into pages in the browser before the PDF is printed. A
+title never stays alone at the foot of a page (it keeps its table's header and
+first row, or its first paragraph); a table row is never cut and a table carried
+over repeats its header; a short block (the stat row, Account and Your
+Performance, a paragraph) is never cut. The page descriptions below give the
+order of the parts and their content, not where the pages turn.
 
 ## Rules specific to this document
 
