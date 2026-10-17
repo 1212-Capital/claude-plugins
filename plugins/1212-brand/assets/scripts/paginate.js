@@ -1,4 +1,4 @@
-// The continuous flow of the 1212 A4 documents (Noah, 1 Oct 2026): after the cover, which stays alone, the parts
+// The continuous flow of the 1212 A4 documents (jeanbrasse, 1 Oct 2026): after the cover, which stays alone, the parts
 // follow one another and a page turns only when it is full. The builders write the parts once, in a
 // <section class="flow">; this script, run by the page itself once its fonts are ready, lays them into .page
 // sections the browser measures, then the PDF prints one .page per sheet as before (render_pdf.py waits for it).

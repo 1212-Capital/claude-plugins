@@ -128,7 +128,7 @@ def build(d):
     mv_rows = [[(m["date"], 110, False), (m["type"], 190, False),
                 (m["amount"], 150, True), (m.get("currency", cur), 70, True)] for m in movements]
 
-    # One flow after the cover (Noah, 1 Oct 2026): the parts follow one another and paginate.js turns a page only
+    # One flow after the cover (jeanbrasse, 1 Oct 2026): the parts follow one another and paginate.js turns a page only
     # when it is full. A "keep" part is never cut; a "table" part breaks between rows, its header repeated; a
     # "blocks" part breaks between paragraphs; each title keeps its first row or paragraph.
     parts = [("keep", f'''    <div class="section">

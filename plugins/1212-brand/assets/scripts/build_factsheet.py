@@ -217,7 +217,7 @@ def build(d):
   </div>
 </section>'''
 
-    # One flow after the cover (Noah, 1 Oct 2026): the parts follow one another and paginate.js turns a page only
+    # One flow after the cover (jeanbrasse, 1 Oct 2026): the parts follow one another and paginate.js turns a page only
     # when the next part does not fit. Every part is kept whole but the important information, which breaks
     # between paragraphs, its title keeping the first one.
     a = d["allocation"]
