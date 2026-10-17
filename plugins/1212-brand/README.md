@@ -135,7 +135,7 @@ Inner pages carry no landscape. The cover keeps it.
 ## Changelog
 
 - **1.5.0** (October 2026). The client statement and the fact sheet flow
-  continuously after the cover (Noah): the parts follow one another and a page
+  continuously after the cover (jeanbrasse): the parts follow one another and a page
   turns only when it is full, instead of a page per part. The builders write the
   parts once in a `section.flow`; `paginate.js`, loaded by the document, lays
   them into `.page` sections once the fonts are ready, and `render_pdf.py` and
